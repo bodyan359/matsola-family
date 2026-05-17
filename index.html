@@ -1762,6 +1762,222 @@ section { scroll-margin-top: 80px; }
 }
 .section-num span { color: var(--accent); }
 
+/* ==================================================================
+   ACCESSIBILITY · WCAG 2.2 AA / EN 301 549
+   ================================================================== */
+
+/* ----- Skip link (keyboard) ----- */
+.skip-link {
+  position: absolute; top: -80px; left: 0;
+  background: var(--cream); color: var(--black);
+  padding: 14px 22px;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.06em;
+  z-index: 1000;
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  transition: top .2s ease;
+}
+.skip-link:focus { top: 0; outline: 0; }
+
+/* ----- Visible focus indicators (WCAG 2.4.7) ----- */
+*:focus { outline: 0; }
+*:focus-visible {
+  outline: 3px solid var(--accent) !important;
+  outline-offset: 3px !important;
+  border-radius: 2px;
+}
+a:focus-visible, button:focus-visible {
+  box-shadow: 0 0 0 4px rgba(229, 133, 66, 0.25);
+}
+
+/* ----- Minimum 44×44px touch targets (WCAG 2.5.5) ----- */
+.topbar-nav a { min-height: 44px; display: inline-flex; align-items: center; }
+.where-tabs button, .flav-switch button { min-height: 44px; }
+.faq-q { min-height: 56px; }
+.thumb { min-width: 36px; min-height: 36px; }
+@media (pointer: coarse) {
+  .thumb { min-width: 44px; min-height: 44px; }
+}
+
+/* ----- Font-size scale (user-controllable) ----- */
+html[data-fs="lg"] body { font-size: 18px; }
+html[data-fs="xl"] body { font-size: 21px; }
+html[data-fs="lg"] h1 { font-size: clamp(60px, 9vw, 152px); }
+html[data-fs="xl"] h1 { font-size: clamp(64px, 10vw, 168px); }
+html[data-fs="lg"] .pack { transform: scale(0.95); }
+html[data-fs="xl"] .pack { transform: scale(0.9); }
+
+/* ----- High contrast mode ----- */
+html[data-contrast="hi"] {
+  --black: #000000;
+  --ink: #000000;
+  --ink-2: #0a0a0a;
+  --ink-3: #111111;
+  --cream: #FFFFFF;
+  --cream-2: #FAFAFA;
+  --cream-3: #F0F0F0;
+  --cream-4: #E0E0E0;
+  --rule: rgba(255,255,255,0.45);
+  --accent: #FFB347;
+  --accent-deep: #FF8800;
+  --accent-glow: rgba(255, 179, 71, 0.7);
+  --green: #5CE65C;
+  --red: #FF6B6B;
+}
+html[data-contrast="hi"] body { color: #FFFFFF; }
+html[data-contrast="hi"] .body { color: #F0F0F0; }
+html[data-contrast="hi"] .topbar { background: rgba(0,0,0,0.96); border-bottom-color: rgba(255,255,255,0.5); }
+html[data-contrast="hi"] .nc-row .nc-lbl,
+html[data-contrast="hi"] .mom-card .mom-desc,
+html[data-contrast="hi"] .step .d,
+html[data-contrast="hi"] .lineup-content .desc { color: #FAFAFA; }
+html[data-contrast="hi"] *:focus-visible { outline-width: 4px !important; outline-color: #FFEB3B !important; }
+html[data-contrast="hi"] .pack-window { filter: contrast(1.15) saturate(1.2); }
+html[data-contrast="hi"] body::before { display: none; } /* убрать зерно */
+
+/* ----- Motion-off mode (user choice, separate from prefers-reduced-motion) ----- */
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+html[data-motion="off"] .hero-product .pack-frame { animation: none !important; }
+html[data-motion="off"] .marquee-track { animation: none !important; }
+html[data-motion="off"] .cursor-dot,
+html[data-motion="off"] .cursor-ring { display: none !important; }
+html[data-motion="off"] body { cursor: auto !important; }
+
+/* ----- Underline links mode (WCAG 1.4.1) ----- */
+html[data-underline="on"] a:not(.btn):not(.cta):not(.m-cta):not(.topbar-logo):not(.thumb) {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+/* ----- Letter spacing for dyslexia-friendly (WCAG 1.4.12) ----- */
+html[data-readable="on"] body {
+  letter-spacing: 0.05em;
+  word-spacing: 0.16em;
+  line-height: 1.85;
+}
+html[data-readable="on"] p, html[data-readable="on"] .desc { line-height: 2; }
+
+/* ----- A11y toggle button ----- */
+.a11y-toggle {
+  position: fixed; right: 22px; bottom: 86px; z-index: 91;
+  width: 50px; height: 50px;
+  background: var(--ink);
+  color: var(--cream);
+  border: 1px solid var(--cream-3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--sans); font-weight: 800; font-size: 18px;
+  cursor: pointer;
+  transition: background .2s, transform .2s, color .2s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.a11y-toggle:hover { background: var(--accent); color: var(--black); border-color: var(--accent); }
+.a11y-toggle:hover { transform: scale(1.05); }
+@media (max-width: 600px) { .a11y-toggle { right: 16px; bottom: 70px; width: 44px; height: 44px; font-size: 16px; } }
+html[data-contrast="hi"] .a11y-toggle { background: #FFEB3B; color: #000; border-color: #000; }
+
+/* ----- A11y panel ----- */
+.a11y-panel {
+  position: fixed; right: 22px; bottom: 150px; z-index: 92;
+  width: 320px; max-width: calc(100vw - 32px);
+  background: var(--ink);
+  border: 1px solid var(--cream-3);
+  padding: 22px 22px 18px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.7);
+  opacity: 0; transform: translateY(10px) scale(0.96);
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  font-family: var(--sans);
+}
+.a11y-panel.on { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+@media (max-width: 600px) { .a11y-panel { right: 16px; bottom: 122px; } }
+html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
+.a11y-panel h3 {
+  font-family: var(--display); font-style: italic;
+  font-size: 20px; color: var(--cream); margin: 0 0 4px;
+}
+.a11y-panel .sub {
+  font-size: 11px; color: var(--cream-4); margin: 0 0 18px;
+  letter-spacing: 0.04em;
+}
+.a11y-panel .a11y-group {
+  margin-bottom: 16px;
+}
+.a11y-panel .a11y-label {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--cream-3); font-weight: 700; margin-bottom: 8px;
+}
+.a11y-panel .a11y-row {
+  display: flex; gap: 6px;
+}
+.a11y-panel .a11y-row button {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--cream-3);
+  padding: 10px 8px;
+  font-size: 12px; font-family: var(--sans); font-weight: 600;
+  cursor: pointer;
+  transition: all .15s;
+  min-height: 40px;
+}
+.a11y-panel .a11y-row button:hover { color: var(--cream); border-color: var(--cream-3); }
+.a11y-panel .a11y-row button.on {
+  background: var(--accent); border-color: var(--accent); color: var(--black);
+}
+.a11y-panel .a11y-toggle-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 0;
+  border-top: 1px solid var(--rule);
+  font-size: 13px; color: var(--cream-2);
+}
+.a11y-panel .a11y-toggle-row:first-of-type { border-top: 0; }
+.a11y-panel .a11y-toggle-row label { cursor: pointer; user-select: none; flex: 1; }
+.a11y-panel .a11y-toggle-row .switch {
+  position: relative;
+  width: 42px; height: 24px;
+  background: var(--ink-3);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.a11y-panel .a11y-toggle-row .switch::after {
+  content: ""; position: absolute; top: 2px; left: 2px;
+  width: 18px; height: 18px;
+  background: var(--cream-3);
+  border-radius: 50%;
+  transition: transform .2s, background .2s;
+}
+.a11y-panel .a11y-toggle-row .switch.on { background: var(--accent); border-color: var(--accent); }
+.a11y-panel .a11y-toggle-row .switch.on::after { transform: translateX(18px); background: var(--black); }
+.a11y-panel .a11y-reset {
+  margin-top: 16px;
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--rule);
+  color: var(--cream-3);
+  padding: 12px;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700;
+  cursor: pointer; font-family: var(--sans);
+  transition: all .15s;
+  min-height: 44px;
+}
+.a11y-panel .a11y-reset:hover { color: var(--cream); border-color: var(--cream); }
+
+/* ----- Better text contrast on small labels (WCAG AA) ----- */
+.bs-item .s, .step .d, .stat .l, .nc-hsub {
+  color: var(--cream-3);
+}
+
 /* ===== Reduce motion ===== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1784,6 +2000,8 @@ section { scroll-margin-top: 80px; }
 </style>
 </head>
 <body>
+
+<a class="skip-link" href="#main-content">Перейти до основного контенту</a>
 
 <div class="loader-bar" id="loader"></div>
 <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -1824,6 +2042,8 @@ section { scroll-margin-top: 80px; }
   <a href="#where" class="m-cta">↗ Знайти в магазині</a>
   <div class="m-tag">Matsola Family · Перша Приватна Броварня · з 2004</div>
 </nav>
+
+<main id="main-content">
 
 <!-- HERO -->
 <section class="hero" id="top">
@@ -2636,6 +2856,8 @@ section { scroll-margin-top: 80px; }
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <div class="wrap">
@@ -2685,6 +2907,47 @@ section { scroll-margin-top: 80px; }
 </footer>
 
 <button class="up-top" id="upTop" aria-label="Нагору">↑</button>
+
+<button class="a11y-toggle" id="a11yToggle" aria-label="Налаштування доступності" aria-expanded="false" aria-controls="a11yPanel" title="Доступність">⟐</button>
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-labelledby="a11yTitle" aria-hidden="true">
+  <h3 id="a11yTitle">Доступність</h3>
+  <p class="sub">Налаштуйте сайт під себе</p>
+
+  <div class="a11y-group">
+    <div class="a11y-label">Розмір тексту</div>
+    <div class="a11y-row" role="radiogroup" aria-label="Розмір тексту">
+      <button data-fs="md" class="on" role="radio" aria-checked="true">A</button>
+      <button data-fs="lg" role="radio" aria-checked="false" style="font-size:14px;">A+</button>
+      <button data-fs="xl" role="radio" aria-checked="false" style="font-size:16px;">A++</button>
+    </div>
+  </div>
+
+  <div class="a11y-group">
+    <div class="a11y-label">Контраст</div>
+    <div class="a11y-row" role="radiogroup" aria-label="Режим контрасту">
+      <button data-contrast="normal" class="on" role="radio" aria-checked="true">Звичайний</button>
+      <button data-contrast="hi" role="radio" aria-checked="false">Високий</button>
+    </div>
+  </div>
+
+  <div class="a11y-toggle-row">
+    <label for="swMotion">Вимкнути анімації</label>
+    <div class="switch" id="swMotion" role="switch" aria-checked="false" tabindex="0" data-key="motion"></div>
+  </div>
+
+  <div class="a11y-toggle-row">
+    <label for="swUnderline">Підкреслювати посилання</label>
+    <div class="switch" id="swUnderline" role="switch" aria-checked="false" tabindex="0" data-key="underline"></div>
+  </div>
+
+  <div class="a11y-toggle-row">
+    <label for="swReadable">Чіткіший інтервал тексту</label>
+    <div class="switch" id="swReadable" role="switch" aria-checked="false" tabindex="0" data-key="readable"></div>
+  </div>
+
+  <button class="a11y-reset" id="a11yReset">Скинути налаштування</button>
+</aside>
 
 <script>
 (function(){
@@ -2971,6 +3234,104 @@ section { scroll-margin-top: 80px; }
     }, { threshold: 0.5 });
     counters.forEach(c => cio.observe(c));
   }
+
+  // ============================================================
+  //  ACCESSIBILITY PANEL — WCAG 2.2 AA / EN 301 549
+  // ============================================================
+  const a11yToggle = document.getElementById('a11yToggle');
+  const a11yPanel = document.getElementById('a11yPanel');
+  const a11yReset = document.getElementById('a11yReset');
+  const htmlEl = document.documentElement;
+
+  // Load saved settings
+  const A11Y_KEY = 'matsola_a11y';
+  const defaults = { fs: 'md', contrast: 'normal', motion: false, underline: false, readable: false };
+  let settings = { ...defaults };
+  try {
+    const saved = JSON.parse(localStorage.getItem(A11Y_KEY) || '{}');
+    settings = { ...defaults, ...saved };
+  } catch (e) {}
+
+  function applySettings() {
+    if (settings.fs && settings.fs !== 'md') htmlEl.setAttribute('data-fs', settings.fs);
+    else htmlEl.removeAttribute('data-fs');
+    if (settings.contrast === 'hi') htmlEl.setAttribute('data-contrast', 'hi');
+    else htmlEl.removeAttribute('data-contrast');
+    if (settings.motion) htmlEl.setAttribute('data-motion', 'off');
+    else htmlEl.removeAttribute('data-motion');
+    if (settings.underline) htmlEl.setAttribute('data-underline', 'on');
+    else htmlEl.removeAttribute('data-underline');
+    if (settings.readable) htmlEl.setAttribute('data-readable', 'on');
+    else htmlEl.removeAttribute('data-readable');
+
+    // Update UI state
+    document.querySelectorAll('[data-fs]').forEach(b => {
+      const isOn = b.dataset.fs === settings.fs;
+      b.classList.toggle('on', isOn);
+      b.setAttribute('aria-checked', isOn);
+    });
+    document.querySelectorAll('[data-contrast]').forEach(b => {
+      const isOn = b.dataset.contrast === settings.contrast;
+      b.classList.toggle('on', isOn);
+      b.setAttribute('aria-checked', isOn);
+    });
+    document.querySelectorAll('.switch[data-key]').forEach(sw => {
+      const isOn = !!settings[sw.dataset.key];
+      sw.classList.toggle('on', isOn);
+      sw.setAttribute('aria-checked', isOn);
+    });
+  }
+
+  function saveSettings() {
+    try { localStorage.setItem(A11Y_KEY, JSON.stringify(settings)); } catch (e) {}
+  }
+
+  // Toggle panel
+  let panelOpen = false;
+  const setPanel = (open) => {
+    panelOpen = open;
+    a11yPanel.classList.toggle('on', open);
+    a11yPanel.setAttribute('aria-hidden', !open);
+    a11yToggle.setAttribute('aria-expanded', open);
+    if (open) {
+      // Focus first focusable inside
+      const first = a11yPanel.querySelector('button, [tabindex="0"]');
+      if (first) first.focus();
+    }
+  };
+  a11yToggle.addEventListener('click', (e) => { e.stopPropagation(); setPanel(!panelOpen); });
+
+  // Close on outside click or Esc
+  document.addEventListener('click', (e) => {
+    if (panelOpen && !a11yPanel.contains(e.target) && e.target !== a11yToggle) setPanel(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panelOpen) { setPanel(false); a11yToggle.focus(); }
+  });
+
+  // Radio button groups
+  a11yPanel.querySelectorAll('[data-fs]').forEach(b => {
+    b.addEventListener('click', () => { settings.fs = b.dataset.fs; applySettings(); saveSettings(); });
+  });
+  a11yPanel.querySelectorAll('[data-contrast]').forEach(b => {
+    b.addEventListener('click', () => { settings.contrast = b.dataset.contrast; applySettings(); saveSettings(); });
+  });
+
+  // Switches
+  a11yPanel.querySelectorAll('.switch[data-key]').forEach(sw => {
+    const toggle = () => { settings[sw.dataset.key] = !settings[sw.dataset.key]; applySettings(); saveSettings(); };
+    sw.addEventListener('click', toggle);
+    sw.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
+  });
+
+  // Reset
+  a11yReset.addEventListener('click', () => {
+    settings = { ...defaults };
+    applySettings(); saveSettings();
+  });
+
+  // Initial apply
+  applySettings();
 
   // ---- Konami easter egg: type "matsola" for a confetti burst on cabanos
   let keyBuffer = '';
