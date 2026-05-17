@@ -2192,7 +2192,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
 <header class="topbar" id="topbar">
   <div class="wrap">
     <div class="topbar-inner">
-      <a class="topbar-logo" href="#top" aria-label="Matsola Family">
+      <a class="topbar-logo" href="#top">
         <span class="word">Matsola</span>
         <span class="estd">Family<small>ESTD · 2025</small></span>
       </a>
@@ -3073,9 +3073,9 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
           <li><a href="https://ppb.com.ua" target="_blank" rel="noopener">↗ ppb.com.ua</a></li>
         </ul>
         <div class="social" style="margin-top: 18px;">
-          <a href="#" aria-label="Instagram">ig</a>
-          <a href="#" aria-label="Facebook">fb</a>
-          <a href="#" aria-label="YouTube">yt</a>
+          <a href="#" aria-label="Instagram"><span aria-hidden="true">ig</span></a>
+          <a href="#" aria-label="Facebook"><span aria-hidden="true">fb</span></a>
+          <a href="#" aria-label="YouTube"><span aria-hidden="true">yt</span></a>
         </div>
       </div>
     </div>
@@ -3090,7 +3090,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
 
 <button class="a11y-toggle" id="a11yToggle" aria-label="Налаштування доступності" aria-expanded="false" aria-controls="a11yPanel" title="Доступність"><span aria-hidden="true">⟐</span></button>
 
-<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-labelledby="a11yTitle" aria-hidden="true">
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-labelledby="a11yTitle" aria-hidden="true" inert>
   <h3 id="a11yTitle">Доступність</h3>
   <p class="sub">Налаштуйте сайт під себе</p>
 
@@ -3473,6 +3473,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
     panelOpen = open;
     a11yPanel.classList.toggle('on', open);
     a11yPanel.setAttribute('aria-hidden', !open);
+    if (open) a11yPanel.removeAttribute('inert'); else a11yPanel.setAttribute('inert', '');
     a11yToggle.setAttribute('aria-expanded', open);
     if (open) {
       // Focus first focusable inside
