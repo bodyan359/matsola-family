@@ -1,0 +1,7 @@
+lighthouse-report.json
+lh-desktop.json
+lh-mobile.json
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
