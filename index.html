@@ -1639,10 +1639,12 @@ footer .brand p {
   font-family: var(--display); font-style: italic;
   font-size: 18px; color: var(--cream-2); max-width: 320px; line-height: 1.5; margin: 0;
 }
-footer h5 {
+footer .foot-h {
   margin: 0 0 18px;
   font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
   color: var(--cream); font-weight: 700;
+  font-family: var(--sans); font-style: normal;
+  line-height: 1;
 }
 footer ul { list-style: none; padding: 0; margin: 0; }
 footer ul li { padding: 6px 0; font-size: 14px; color: var(--cream-3); }
@@ -2210,7 +2212,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
   </div>
 </header>
 
-<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
   <a href="#products">Продукти</a>
   <a href="#moments">Моменти</a>
   <a href="#bts">Як робимо</a>
@@ -3045,7 +3047,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
         <p>Частина сімейної історії · Перша Приватна Броварня з 2004</p>
       </div>
       <div>
-        <h5>Продукти</h5>
+        <h3 class="foot-h">Продукти</h3>
         <ul>
           <li><a href="#products">Курячі Слайси</a></li>
           <li><a href="#cabanos">Кабаноси Класичні</a></li>
@@ -3055,7 +3057,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
         </ul>
       </div>
       <div>
-        <h5>Бренд</h5>
+        <h3 class="foot-h">Бренд</h3>
         <ul>
           <li><a href="#founder">Про нас</a></li>
           <li><a href="#bts">Як робимо</a></li>
@@ -3065,7 +3067,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
         </ul>
       </div>
       <div>
-        <h5>Соцмережі</h5>
+        <h3 class="foot-h">Соцмережі</h3>
         <ul>
           <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://ppb.com.ua" target="_blank" rel="noopener">↗ ppb.com.ua</a></li>
@@ -3084,9 +3086,9 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
   </div>
 </footer>
 
-<button class="up-top" id="upTop" aria-label="Нагору">↑</button>
+<button class="up-top" id="upTop" aria-label="Нагору"><span aria-hidden="true">↑</span></button>
 
-<button class="a11y-toggle" id="a11yToggle" aria-label="Налаштування доступності" aria-expanded="false" aria-controls="a11yPanel" title="Доступність">⟐</button>
+<button class="a11y-toggle" id="a11yToggle" aria-label="Налаштування доступності" aria-expanded="false" aria-controls="a11yPanel" title="Доступність"><span aria-hidden="true">⟐</span></button>
 
 <aside class="a11y-panel" id="a11yPanel" role="dialog" aria-labelledby="a11yTitle" aria-hidden="true">
   <h3 id="a11yTitle">Доступність</h3>
@@ -3150,6 +3152,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
     mmenu.classList.toggle('on', on);
     burger.setAttribute('aria-expanded', on);
     mmenu.setAttribute('aria-hidden', !on);
+    if (on) mmenu.removeAttribute('inert'); else mmenu.setAttribute('inert', '');
     document.body.style.overflow = on ? 'hidden' : '';
   };
   burger.addEventListener('click', () => toggleMenu(!burger.classList.contains('on')));
