@@ -1,0 +1,630 @@
+<script is:inline>
+(function(){
+  // Loader bar on entry
+  const loader = document.getElementById('loader');
+  requestAnimationFrame(() => {
+    loader.classList.add('in');
+    setTimeout(() => loader.classList.add('out'), 600);
+  });
+
+  // Topbar scroll state
+  const topbar = document.getElementById('topbar');
+  const onScroll = () => topbar.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mmenu = document.getElementById('mobileMenu');
+  const toggleMenu = (on) => {
+    burger.classList.toggle('on', on);
+    mmenu.classList.toggle('on', on);
+    burger.setAttribute('aria-expanded', on);
+    mmenu.setAttribute('aria-hidden', !on);
+    if (on) mmenu.removeAttribute('inert'); else mmenu.setAttribute('inert', '');
+    document.body.style.overflow = on ? 'hidden' : '';
+  };
+  burger.addEventListener('click', () => toggleMenu(!burger.classList.contains('on')));
+  mmenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+
+  // Active section in nav
+  const navLinks = document.querySelectorAll('.navlink');
+  const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const setActive = () => {
+    const y = window.scrollY + 120;
+    let active = sections[0];
+    for (const s of sections) {
+      if (s.offsetTop <= y) active = s;
+    }
+    navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + active.id));
+  };
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+
+  // Scroll-reveal via IntersectionObserver
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('on');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Standards bars animation when in view
+  const standards = document.querySelector('.standards');
+  if (standards) {
+    const sio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          standards.classList.add('in');
+          sio.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    sio.observe(standards);
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+  });
+
+  // Where-to-buy tabs
+  const whereTabs = document.querySelectorAll('.where-tabs .wtab');
+  const retGrids = document.querySelectorAll('.where .ret-grid');
+  whereTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const cat = tab.dataset.cat;
+      whereTabs.forEach(t => t.classList.toggle('on', t === tab));
+      retGrids.forEach(g => g.style.display = (g.dataset.cat === cat) ? '' : 'none');
+    });
+  });
+
+  // Cabanos flavour switcher
+  const flavBtns = document.querySelectorAll('#flavSwitch button');
+  const packs = document.querySelectorAll('#packStack .pack');
+  const thumbs = document.querySelectorAll('#packThumbs .thumb');
+  function selectFlavour(fl) {
+    flavBtns.forEach(b => {
+      const on = b.dataset.fl === fl;
+      b.classList.toggle('on', on);
+      b.setAttribute('aria-selected', on);
+    });
+    packs.forEach(p => p.classList.toggle('on', p.dataset.fl === fl));
+    thumbs.forEach(t => t.classList.toggle('on', t.dataset.fl === fl));
+  }
+  flavBtns.forEach(b => b.addEventListener('click', () => selectFlavour(b.dataset.fl)));
+  thumbs.forEach(t => t.addEventListener('click', () => selectFlavour(t.dataset.fl)));
+
+  // Smooth scroll for in-page anchors that target current page
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href === '#' || href.length < 2) return;
+      const t = document.querySelector(href);
+      if (!t) return;
+      e.preventDefault();
+      t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      history.pushState(null, '', href);
+    });
+  });
+
+  // ============================================================
+  //  ENHANCED ANIMATIONS
+  // ============================================================
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isFinePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // ---- Scroll progress bar
+  const progress = document.getElementById('scrollProgress');
+  const updateProgress = () => {
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    const p = max > 0 ? (h.scrollTop / max) * 100 : 0;
+    progress.style.setProperty('--p', p + '%');
+  };
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // ---- Back-to-top button
+  const upTop = document.getElementById('upTop');
+  const updateUp = () => upTop.classList.toggle('on', window.scrollY > 800);
+  window.addEventListener('scroll', updateUp, { passive: true });
+  updateUp();
+  upTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // ---- Custom cursor (desktop with fine pointer only)
+  const cDot = document.getElementById('cursorDot');
+  const cRing = document.getElementById('cursorRing');
+  if (isFinePointer && !reduceMotion) {
+    document.body.classList.add('cursor-on');
+    let mx = innerWidth / 2, my = innerHeight / 2;
+    let rx = mx, ry = my, dx = mx, dy = my;
+    window.addEventListener('mousemove', (e) => { mx = e.clientX; my = e.clientY; }, { passive: true });
+    const lerp = (a, b, t) => a + (b - a) * t;
+    function tick() {
+      dx = lerp(dx, mx, 0.55);
+      dy = lerp(dy, my, 0.55);
+      rx = lerp(rx, mx, 0.18);
+      ry = lerp(ry, my, 0.18);
+      cDot.style.transform = `translate(${dx}px, ${dy}px) translate(-50%, -50%)`;
+      cRing.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%) scale(${document.body.classList.contains('cur-link') ? 1 : 1})`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+    // hover targets
+    const hoverables = 'a, button, .pack, .pcard, .mom-card, .fp-tile, .fp-combo, .ret-card, .faq-q';
+    document.body.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverables)) document.body.classList.add('cur-link');
+      if (e.target.closest('.pack')) document.body.classList.add('cur-drag');
+    });
+    document.body.addEventListener('mouseout', (e) => {
+      if (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest(hoverables)) {
+        document.body.classList.remove('cur-link');
+      }
+      if (!e.relatedTarget || !e.relatedTarget.closest || !e.relatedTarget.closest('.pack')) {
+        document.body.classList.remove('cur-drag');
+      }
+    });
+    window.addEventListener('mouseleave', () => {
+      document.body.classList.remove('cur-link', 'cur-drag');
+    });
+  }
+
+  // ---- Magnetic buttons → upgraded to spring physics in the Motion layer
+  //      (see the <script type="module"> block near the end of <body>)
+
+  // ---- Glow tracking on cards
+  if (isFinePointer && !reduceMotion) {
+    const glowSel = '.mom-card, .ret-card, .nc, .fp-tile, .fp-combo, .step, .stat-card, .card-2, .lineup';
+    document.querySelectorAll(glowSel).forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width) * 100 + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height) * 100 + '%');
+      });
+    });
+  }
+
+  // ---- 3D tilt on tilt-stage > [data-tilt]
+  if (isFinePointer && !reduceMotion) {
+    document.querySelectorAll('.tilt-stage').forEach(stage => {
+      const tiltEl = stage.querySelector('[data-tilt]');
+      if (!tiltEl) return;
+      let tx = 0, ty = 0;
+      let cx = 0, cy = 0;
+      const max = 10;
+      stage.addEventListener('mousemove', (e) => {
+        const r = stage.getBoundingClientRect();
+        const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+        const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+        tx = -dy * max;
+        ty = dx * max;
+      });
+      stage.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+      const lerp = (a, b, t) => a + (b - a) * t;
+      function loop() {
+        cx = lerp(cx, tx, 0.12);
+        cy = lerp(cy, ty, 0.12);
+        tiltEl.style.transform = `rotateX(${cx}deg) rotateY(${cy}deg)`;
+        requestAnimationFrame(loop);
+      }
+      loop();
+    });
+  }
+
+  // ---- Mouse parallax on hero pack
+  if (isFinePointer && !reduceMotion) {
+    const parallaxEls = document.querySelectorAll('[data-mouse-parallax]');
+    const hero = document.querySelector('.hero');
+    if (hero && parallaxEls.length) {
+      let tx = 0, ty = 0, cx = 0, cy = 0;
+      hero.addEventListener('mousemove', (e) => {
+        const r = hero.getBoundingClientRect();
+        tx = ((e.clientX - r.left) / r.width - 0.5) * 24;
+        ty = ((e.clientY - r.top) / r.height - 0.5) * 24;
+      });
+      hero.addEventListener('mouseleave', () => { tx = 0; ty = 0; });
+      const lerp = (a, b, t) => a + (b - a) * t;
+      function loop() {
+        cx = lerp(cx, tx, 0.08);
+        cy = lerp(cy, ty, 0.08);
+        parallaxEls.forEach(el => { el.style.translate = `${cx}px ${cy}px`; });
+        requestAnimationFrame(loop);
+      }
+      loop();
+    }
+  }
+
+  // ====================================================================
+  //  HERO EMBER SPARKLES
+  //  Ported from 21st.dev — aceternity/sparkles (originally React + tsparticles)
+  //  https://21st.dev/community/components/aceternity/sparkles
+  //  Reimplemented as a dependency-free canvas, recoloured to the copper
+  //  palette: drifting embers that twinkle (animated opacity) and rise.
+  // ====================================================================
+  (function () {
+    const canvas = document.getElementById('heroSparkles');
+    const hero = document.querySelector('.hero');
+    if (!canvas || !hero || !canvas.getContext) return;
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const EMBER = ['#E58542', '#E58542', '#E58542', '#EEBF3A', '#F2EBD8'];
+    let w = 0, h = 0, parts = [], raf = 0, running = false, onScreen = true, ready = false;
+
+    const motionOff = () =>
+      matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      document.documentElement.getAttribute('data-motion') === 'off';
+
+    const spark = (atBottom) => ({
+      x: Math.random() * w,
+      y: atBottom ? h + Math.random() * 28 : Math.random() * h,
+      r: 0.5 + Math.random() * 1.5,
+      vx: (Math.random() - 0.5) * 0.16,
+      vy: -(0.08 + Math.random() * 0.34),
+      c: EMBER[(Math.random() * EMBER.length) | 0],
+      tw: Math.random() * 6.283,
+      tws: 0.01 + Math.random() * 0.026,
+      a: 0.32 + Math.random() * 0.5,
+    });
+
+    function resize() {
+      const r = hero.getBoundingClientRect();
+      w = Math.round(r.width); h = Math.round(r.height);
+      if (!w || !h) return;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.round(Math.min(72, Math.max(26, (w * h) / 17000)));
+      parts = []; for (let i = 0; i < n; i++) parts.push(spark(false));
+    }
+
+    function paint(animate) {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of parts) {
+        if (animate) {
+          p.x += p.vx; p.y += p.vy; p.tw += p.tws;
+          if (p.y < -10) Object.assign(p, spark(true));
+          if (p.x < -10) p.x = w + 10; else if (p.x > w + 10) p.x = -10;
+        }
+        const twinkle = animate ? 0.4 + 0.6 * (0.5 + 0.5 * Math.sin(p.tw)) : 0.85;
+        const base = p.a * twinkle;
+        ctx.fillStyle = p.c;
+        ctx.globalAlpha = base * 0.3;                                  // soft ember halo
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r * 2.6, 0, 6.283); ctx.fill();
+        ctx.globalAlpha = base;                                        // bright core
+        ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 6.283); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function loop() {
+      if (motionOff()) { paint(false); running = false; return; }
+      paint(true);
+      raf = requestAnimationFrame(loop);
+    }
+    function start() {
+      if (!ready || running || !onScreen || !w) return;
+      if (motionOff()) { paint(false); return; }
+      running = true; loop();
+    }
+    function stop() { running = false; cancelAnimationFrame(raf); }
+    function restart() { stop(); start(); }
+
+    resize();
+    let rz;
+    window.addEventListener('resize', () => {
+      clearTimeout(rz);
+      rz = setTimeout(() => { resize(); if (!running) paint(false); }, 220);
+    }, { passive: true });
+
+    new IntersectionObserver((es) => {
+      onScreen = es[0].isIntersecting;
+      onScreen ? start() : stop();
+    }, { rootMargin: '140px' }).observe(hero);
+
+    matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change', restart);
+    new MutationObserver(restart).observe(document.documentElement,
+      { attributes: true, attributeFilter: ['data-motion'] });
+
+    // Start after load so the canvas never competes with first paint / LCP.
+    const kick = () => { ready = true; resize(); start(); };
+    if (document.readyState === 'complete') kick();
+    else window.addEventListener('load', kick, { once: true });
+  })();
+
+  // ---- Count-up numbers when in view
+  const counters = document.querySelectorAll('.count');
+  const animateCount = (el) => {
+    const to = parseFloat(el.dataset.to);
+    const suffix = el.dataset.suffix || '';
+    if (isNaN(to)) return;
+    const duration = 1400;
+    const start = performance.now();
+    el.dataset.counting = '1';
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+    function step(now) {
+      const elapsed = now - start;
+      const t = Math.min(elapsed / duration, 1);
+      const val = to * ease(t);
+      el.innerHTML = (to >= 10 ? Math.round(val) : val.toFixed(1).replace(/\.0$/, '')) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+      else { el.dataset.counting = '0'; }
+    }
+    requestAnimationFrame(step);
+  };
+  if (counters.length) {
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          animateCount(e.target);
+          cio.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => cio.observe(c));
+  }
+
+  // ============================================================
+  //  ACCESSIBILITY PANEL — WCAG 2.2 AA / EN 301 549
+  // ============================================================
+  const a11yToggle = document.getElementById('a11yToggle');
+  const a11yPanel = document.getElementById('a11yPanel');
+  const a11yReset = document.getElementById('a11yReset');
+  const htmlEl = document.documentElement;
+
+  // Load saved settings
+  const A11Y_KEY = 'matsola_a11y';
+  const defaults = { fs: 'md', contrast: 'normal', motion: false, underline: false, readable: false };
+  let settings = { ...defaults };
+  try {
+    const saved = JSON.parse(localStorage.getItem(A11Y_KEY) || '{}');
+    settings = { ...defaults, ...saved };
+  } catch (e) {}
+
+  function applySettings() {
+    if (settings.fs && settings.fs !== 'md') htmlEl.setAttribute('data-fs', settings.fs);
+    else htmlEl.removeAttribute('data-fs');
+    if (settings.contrast === 'hi') htmlEl.setAttribute('data-contrast', 'hi');
+    else htmlEl.removeAttribute('data-contrast');
+    if (settings.motion) htmlEl.setAttribute('data-motion', 'off');
+    else htmlEl.removeAttribute('data-motion');
+    if (settings.underline) htmlEl.setAttribute('data-underline', 'on');
+    else htmlEl.removeAttribute('data-underline');
+    if (settings.readable) htmlEl.setAttribute('data-readable', 'on');
+    else htmlEl.removeAttribute('data-readable');
+
+    // Update UI state
+    document.querySelectorAll('[data-fs]').forEach(b => {
+      const isOn = b.dataset.fs === settings.fs;
+      b.classList.toggle('on', isOn);
+      b.setAttribute('aria-checked', isOn);
+    });
+    document.querySelectorAll('[data-contrast]').forEach(b => {
+      const isOn = b.dataset.contrast === settings.contrast;
+      b.classList.toggle('on', isOn);
+      b.setAttribute('aria-checked', isOn);
+    });
+    document.querySelectorAll('.switch[data-key]').forEach(sw => {
+      const isOn = !!settings[sw.dataset.key];
+      sw.classList.toggle('on', isOn);
+      sw.setAttribute('aria-checked', isOn);
+    });
+  }
+
+  function saveSettings() {
+    try { localStorage.setItem(A11Y_KEY, JSON.stringify(settings)); } catch (e) {}
+  }
+
+  // Toggle panel
+  let panelOpen = false;
+  const setPanel = (open) => {
+    panelOpen = open;
+    a11yPanel.classList.toggle('on', open);
+    a11yPanel.setAttribute('aria-hidden', !open);
+    if (open) a11yPanel.removeAttribute('inert'); else a11yPanel.setAttribute('inert', '');
+    a11yToggle.setAttribute('aria-expanded', open);
+    if (open) {
+      // Focus first focusable inside
+      const first = a11yPanel.querySelector('button, [tabindex="0"]');
+      if (first) first.focus();
+    }
+  };
+  a11yToggle.addEventListener('click', (e) => { e.stopPropagation(); setPanel(!panelOpen); });
+
+  // Close on outside click or Esc
+  document.addEventListener('click', (e) => {
+    if (panelOpen && !a11yPanel.contains(e.target) && e.target !== a11yToggle) setPanel(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panelOpen) { setPanel(false); a11yToggle.focus(); }
+  });
+
+  // Radio button groups
+  a11yPanel.querySelectorAll('[data-fs]').forEach(b => {
+    b.addEventListener('click', () => { settings.fs = b.dataset.fs; applySettings(); saveSettings(); });
+  });
+  a11yPanel.querySelectorAll('[data-contrast]').forEach(b => {
+    b.addEventListener('click', () => { settings.contrast = b.dataset.contrast; applySettings(); saveSettings(); });
+  });
+
+  // Switches
+  a11yPanel.querySelectorAll('.switch[data-key]').forEach(sw => {
+    const toggle = () => { settings[sw.dataset.key] = !settings[sw.dataset.key]; applySettings(); saveSettings(); };
+    sw.addEventListener('click', toggle);
+    sw.addEventListener('keydown', (e) => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
+  });
+
+  // Reset
+  a11yReset.addEventListener('click', () => {
+    settings = { ...defaults };
+    applySettings(); saveSettings();
+  });
+
+  // Initial apply
+  applySettings();
+
+  // ---- Konami easter egg: type "matsola" for a confetti burst on cabanos
+  let keyBuffer = '';
+  window.addEventListener('keydown', (e) => {
+    keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-7);
+    if (keyBuffer === 'matsola') {
+      const target = document.getElementById('cabanos');
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth' });
+      const stack = document.getElementById('packStack');
+      if (stack) {
+        stack.style.transition = 'transform .8s cubic-bezier(.7,.05,.3,1)';
+        stack.style.transform = 'rotate(360deg)';
+        setTimeout(() => { stack.style.transform = ''; }, 900);
+      }
+      keyBuffer = '';
+    }
+  });
+})();
+</script>
+
+<!-- ==================================================================
+     MOTION ENHANCEMENTS — Motion (motion.dev) vanilla engine.
+     Cinematic hero · magnetic buttons · spotlight lift · smooth FAQ.
+     Loads async; degrades gracefully if the CDN is unavailable.
+     ================================================================== -->
+<script type="module" is:inline>
+(() => {
+  const ROOT     = document.documentElement;
+  const reduceMQ = matchMedia('(prefers-reduced-motion: reduce)');
+  const fineMQ   = matchMedia('(hover: hover) and (pointer: fine)');
+  // Respects both the OS setting and the site's own a11y "motion off" toggle.
+  const motionOK = () => !reduceMQ.matches && ROOT.getAttribute('data-motion') !== 'off';
+  const clamp1   = (v) => Math.max(-1, Math.min(1, v));
+
+  import('https://cdn.jsdelivr.net/npm/motion@12.39.0/+esm')
+    .then(({ animate }) => {
+      if (typeof animate !== 'function') throw new Error('animate() export missing');
+      ROOT.classList.add('motion-ready');
+      heroEntrance(animate);
+      magneticButtons(animate);
+      spotlightLift(animate);
+      smoothFaq(animate);
+    })
+    .catch((err) => {
+      console.warn('[Motion] CDN unavailable — graceful fallback active.', err);
+      ROOT.classList.add('anim-failsafe');   // reveal hero; FAQ keeps its CSS fallback
+    });
+
+  /* ---- Cinematic hero: staggered, spring-eased entrance ---- */
+  function heroEntrance(animate) {
+    const els = [...document.querySelectorAll('.hero-col > *')];
+    const product = document.querySelector('.hero-product');
+    if (product) els.push(product);
+    if (!els.length) return;
+
+    if (!motionOK()) {                       // reduced motion → reveal instantly
+      ROOT.classList.add('anim-failsafe');
+      return;
+    }
+    els.forEach((el, i) => {
+      animate(el, { y: [24, 0] },
+        { duration: 0.8, delay: 0.1 + i * 0.085, ease: [0.16, 1, 0.3, 1] });
+      setTimeout(() => { el.style.willChange = 'auto'; }, 2200);
+    });
+    setTimeout(runShimmer, 900);
+
+    const h1 = document.querySelector('.hero-col > h1');
+    if (h1) h1.addEventListener('pointerenter', runShimmer);
+  }
+
+  /* ---- One-shot light sweep over the accent headline ---- */
+  function runShimmer() {
+    const acc = document.querySelector('.hero h1 .acc');
+    if (!acc || !motionOK()) return;
+    acc.classList.remove('shimmer');
+    void acc.offsetWidth;                    // force reflow so the keyframe restarts
+    acc.classList.add('shimmer');
+    acc.addEventListener('animationend', () => acc.classList.remove('shimmer'), { once: true });
+  }
+
+  /* ---- Magnetic buttons: spring-pull toward the cursor ---- */
+  function magneticButtons(animate) {
+    if (!fineMQ.matches) return;
+    document.querySelectorAll('.btn').forEach((btn) => {
+      btn.addEventListener('pointermove', (e) => {
+        if (!motionOK()) return;
+        const r  = btn.getBoundingClientRect();
+        const nx = clamp1((e.clientX - (r.left + r.width  / 2)) / (r.width  / 2));
+        const ny = clamp1((e.clientY - (r.top  + r.height / 2)) / (r.height / 2));
+        animate(btn, { x: nx * 14, y: ny * 9 },
+          { type: 'spring', stiffness: 280, damping: 15, mass: 0.5 });
+      });
+      btn.addEventListener('pointerleave', () => {
+        animate(btn, { x: 0, y: 0 },
+          { type: 'spring', stiffness: 220, damping: 18, mass: 0.6 });
+      });
+    });
+  }
+
+  /* ---- Spotlight cards: spring lift on hover (glow tracked in main script) ---- */
+  function spotlightLift(animate) {
+    if (!fineMQ.matches) return;
+    document.querySelectorAll('.mom-card').forEach((card) => {
+      card.addEventListener('pointerenter', () => {
+        if (!motionOK()) return;
+        animate(card, { y: -6, scale: 1.015 },
+          { type: 'spring', stiffness: 300, damping: 22 });
+      });
+      card.addEventListener('pointerleave', () => {
+        animate(card, { y: 0, scale: 1 },
+          { type: 'spring', stiffness: 260, damping: 24 });
+      });
+    });
+  }
+
+  /* ---- Smooth FAQ: spring the real height (main script toggles .open) ---- */
+  function smoothFaq(animate) {
+    const SPRING = { type: 'spring', stiffness: 290, damping: 34 };
+    document.querySelectorAll('.faq-q').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const ans  = item && item.querySelector('.faq-a');
+        if (!ans) return;
+        const opening = item.classList.contains('open');   // main script already toggled
+
+        if (opening) {
+          ans.style.height = 'auto';
+          ans.style.paddingBottom = '30px';
+          const target = ans.offsetHeight;
+          ans.style.height = '0px';
+          ans.style.paddingBottom = '0px';
+          if (!motionOK()) {
+            ans.style.height = 'auto'; ans.style.paddingBottom = '30px'; ans.style.opacity = '1';
+            return;
+          }
+          const a = animate(ans,
+            { height: ['0px', target + 'px'], paddingBottom: ['0px', '30px'] }, SPRING);
+          if (a && a.finished) {
+            a.finished.then(() => {
+              if (item.classList.contains('open')) ans.style.height = 'auto';
+            }).catch(() => {});
+          }
+          animate(ans, { opacity: [0, 1] }, { duration: 0.45, ease: 'easeOut' });
+        } else {
+          const current = ans.offsetHeight;
+          if (!motionOK()) {
+            ans.style.height = '0px'; ans.style.paddingBottom = '0px'; ans.style.opacity = '';
+            return;
+          }
+          animate(ans,
+            { height: [current + 'px', '0px'], paddingBottom: ['30px', '0px'] }, SPRING);
+          animate(ans, { opacity: [1, 0] }, { duration: 0.22, ease: 'easeIn' });
+        }
+      });
+    });
+  }
+})();
+</script>

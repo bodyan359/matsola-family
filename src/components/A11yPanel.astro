@@ -1,0 +1,42 @@
+<button class="up-top" id="upTop" aria-label="Нагору"><span aria-hidden="true">↑</span></button>
+
+<button class="a11y-toggle" id="a11yToggle" aria-label="Налаштування доступності" aria-expanded="false" aria-controls="a11yPanel" title="Доступність"><span aria-hidden="true">⟐</span></button>
+
+<aside class="a11y-panel" id="a11yPanel" role="dialog" aria-labelledby="a11yTitle" aria-hidden="true" inert>
+  <h3 id="a11yTitle">Доступність</h3>
+  <p class="sub">Налаштуйте сайт під себе</p>
+
+  <div class="a11y-group">
+    <div class="a11y-label">Розмір тексту</div>
+    <div class="a11y-row" role="radiogroup" aria-label="Розмір тексту">
+      <button data-fs="md" class="on" role="radio" aria-checked="true">A</button>
+      <button data-fs="lg" role="radio" aria-checked="false" style="font-size:14px;">A+</button>
+      <button data-fs="xl" role="radio" aria-checked="false" style="font-size:16px;">A++</button>
+    </div>
+  </div>
+
+  <div class="a11y-group">
+    <div class="a11y-label">Контраст</div>
+    <div class="a11y-row" role="radiogroup" aria-label="Режим контрасту">
+      <button data-contrast="normal" class="on" role="radio" aria-checked="true">Звичайний</button>
+      <button data-contrast="hi" role="radio" aria-checked="false">Високий</button>
+    </div>
+  </div>
+
+  <div class="a11y-toggle-row">
+    <label for="swMotion">Вимкнути анімації</label>
+    <div class="switch" id="swMotion" role="switch" aria-checked="false" tabindex="0" data-key="motion"></div>
+  </div>
+
+  <div class="a11y-toggle-row">
+    <label for="swUnderline">Підкреслювати посилання</label>
+    <div class="switch" id="swUnderline" role="switch" aria-checked="false" tabindex="0" data-key="underline"></div>
+  </div>
+
+  <div class="a11y-toggle-row">
+    <label for="swReadable">Чіткіший інтервал тексту</label>
+    <div class="switch" id="swReadable" role="switch" aria-checked="false" tabindex="0" data-key="readable"></div>
+  </div>
+
+  <button class="a11y-reset" id="a11yReset">Скинути налаштування</button>
+</aside>

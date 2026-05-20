@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Topbar from '../components/Topbar.astro';
+import MobileMenu from '../components/MobileMenu.astro';
+import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import BadgeStrip from '../components/BadgeStrip.astro';
+import Products from '../components/Products.astro';
+import Nutrition from '../components/Nutrition.astro';
+import Standards from '../components/Standards.astro';
+import Protein from '../components/Protein.astro';
+import Moments from '../components/Moments.astro';
+import FoodPairing from '../components/FoodPairing.astro';
+import BehindScenes from '../components/BehindScenes.astro';
+import TvSection from '../components/TvSection.astro';
+import Founder from '../components/Founder.astro';
+import WhereToBuy from '../components/WhereToBuy.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
+import A11yPanel from '../components/A11yPanel.astro';
+import SiteScripts from '../components/SiteScripts.astro';
+---
+
+<Layout>
+  <a class="skip-link" href="#main-content">Перейти до основного контенту</a>
+  <div class="loader-bar" id="loader"></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <Topbar />
+  <MobileMenu />
+
+  <main id="main-content">
+    <Hero />
+    <Marquee />
+    <BadgeStrip />
+    <Products />
+    <Nutrition />
+    <Standards />
+    <Protein />
+    <Moments />
+    <FoodPairing />
+    <BehindScenes />
+    <TvSection />
+    <Founder />
+    <WhereToBuy />
+    <Faq />
+    <Cta />
+  </main>
+
+  <Footer />
+  <A11yPanel />
+  <SiteScripts />
+</Layout>
