@@ -881,6 +881,7 @@ section.section { padding: 148px 0; position: relative; }
 .flav-switch button.on { background: var(--cream); border-color: var(--cream); color: var(--black); }
 .flav-switch button:hover { color: var(--cream); border-color: var(--cream-3); }
 .flav-switch button.on:hover { color: var(--black); }
+.flav-switch button:active { transform: scale(0.94); }
 .flav-switch button[data-fl="classic"]  { --fc: var(--accent); }
 .flav-switch button[data-fl="spicy"]    { --fc: var(--red); }
 .flav-switch button[data-fl="parmesan"] { --fc: var(--amber); }
@@ -890,6 +891,7 @@ section.section { padding: 148px 0; position: relative; }
   position: relative;
   display: flex; align-items: center; justify-content: center;
   width: 100%;
+  transform-style: preserve-3d;   /* lets the packs flip in real 3D inside the tilt */
 }
 .lineup-visual .pack-stack .pack {
   position: absolute; top: 50%; left: 50%;

@@ -103,18 +103,50 @@
     });
   });
 
-  // Cabanos flavour switcher
+  // Cabanos flavour switcher — 3D rolodex flip between the four packs.
+  // The packs flip on their own Y axis; the tilt engine owns #packStack's
+  // transform, so the two never collide.
   const flavBtns = document.querySelectorAll('#flavSwitch button');
   const packs = document.querySelectorAll('#packStack .pack');
   const thumbs = document.querySelectorAll('#packThumbs .thumb');
+  const FLAV_ORDER = ['classic', 'spicy', 'parmesan', 'special'];
+  let curFlav = 'classic';
+  const flavStill = () =>
+    matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    document.documentElement.getAttribute('data-motion') === 'off';
   function selectFlavour(fl) {
+    if (fl === curFlav) return;
     flavBtns.forEach(b => {
       const on = b.dataset.fl === fl;
       b.classList.toggle('on', on);
       b.setAttribute('aria-selected', on);
     });
-    packs.forEach(p => p.classList.toggle('on', p.dataset.fl === fl));
     thumbs.forEach(t => t.classList.toggle('on', t.dataset.fl === fl));
+
+    // Direction of travel → which way the rolodex turns.
+    const dir = FLAV_ORDER.indexOf(fl) > FLAV_ORDER.indexOf(curFlav) ? 1 : -1;
+    const flip = !flavStill();
+    const away = (deg) =>
+      'translate(-50%,-50%) scale(.86) translateZ(-90px) rotateY(' + deg + 'deg)';
+    packs.forEach(p => {
+      const incoming = p.dataset.fl === fl;
+      p.classList.toggle('on', incoming);
+      if (!flip) { p.style.transition = ''; p.style.transform = ''; return; }
+      if (incoming) {
+        p.style.transition = 'none';            // snap to the start frame…
+        p.style.transform = away(dir * 72);
+        void p.offsetWidth;                     // …commit it…
+        p.style.transition = '';                // …then let CSS ease it home.
+        p.style.transform = 'translate(-50%,-50%) scale(1) translateZ(0) rotateY(0deg)';
+      } else if (p.dataset.fl === curFlav) {
+        p.style.transition = '';
+        p.style.transform = away(-dir * 72);    // outgoing pack swings off
+      } else {
+        p.style.transition = 'none';            // idle packs wait off-stage
+        p.style.transform = away(dir * 72);
+      }
+    });
+    curFlav = fl;
   }
   flavBtns.forEach(b => b.addEventListener('click', () => selectFlavour(b.dataset.fl)));
   thumbs.forEach(t => t.addEventListener('click', () => selectFlavour(t.dataset.fl)));
@@ -282,11 +314,15 @@
     function frame() {
       if (still()) { pack.style.transform = 'none'; alive = false; return; }
       phase += 0.016;
-      const aimY = Math.sin(phase * 0.55) * 6 + tgX * 13;     // idle yaw + cursor
-      const aimX = Math.cos(phase * 0.42) * 2.5 - tgY * 10;   // idle pitch + cursor
+      // scroll progress through the hero (0 at top, 1 once scrolled past)
+      const sp = Math.min(1, Math.max(0, window.scrollY / (hero.offsetHeight || 1)));
+      const aimY = Math.sin(phase * 0.55) * 6 + tgX * 13 + sp * 26;  // idle + cursor + scroll
+      const aimX = Math.cos(phase * 0.42) * 2.5 - tgY * 10;
       curX = lerp(curX, aimX, 0.075);
       curY = lerp(curY, aimY, 0.075);
-      pack.style.transform = 'rotateX(' + curX.toFixed(2) + 'deg) rotateY(' + curY.toFixed(2) + 'deg)';
+      const sc = (1 - sp * 0.1).toFixed(3);                          // recedes as it scrolls out
+      pack.style.transform =
+        'rotateX(' + curX.toFixed(2) + 'deg) rotateY(' + curY.toFixed(2) + 'deg) scale(' + sc + ')';
       raf = requestAnimationFrame(frame);
     }
     function start() {
@@ -298,6 +334,35 @@
 
     new IntersectionObserver((es) => { es[0].isIntersecting ? start() : stop(); },
       { rootMargin: '120px' }).observe(hero);
+  })();
+
+  // ---- Scroll parallax — depth layers (elements drift at their own pace)
+  (function () {
+    const layers = [];
+    document.querySelectorAll('.hero .badge').forEach((el) => layers.push([el, 0.12]));
+    document.querySelectorAll('.s-title').forEach((el) => layers.push([el, 0.055]));
+    const portrait = document.querySelector('.founder .portrait');
+    if (portrait) layers.push([portrait, 0.08]);
+    if (!layers.length) return;
+    const still = () =>
+      matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      document.documentElement.getAttribute('data-motion') === 'off';
+    let queued = false;
+    function apply() {
+      queued = false;
+      const vh = window.innerHeight || 1;
+      const off = still();
+      for (const [el, speed] of layers) {
+        if (off) { el.style.translate = ''; continue; }
+        const r = el.getBoundingClientRect();
+        const rel = (r.top + r.height / 2 - vh / 2) / vh;   // -1..1 across the viewport
+        el.style.translate = '0 ' + (rel * speed * -100).toFixed(1) + 'px';
+      }
+    }
+    const onScroll = () => { if (!queued) { queued = true; requestAnimationFrame(apply); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    apply();
   })();
 
   // ====================================================================
