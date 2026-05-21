@@ -33,8 +33,70 @@
   --sans:    "Manrope", system-ui, sans-serif;
 
   --maxw: 1340px;
+  --shade: 22, 20, 18;
   --pad-x: 48px;
 }
+
+/* ==================================================================
+   LIGHT THEME — opt-in palette swap (toggle lives in the topbar).
+   Basic version: variables flip; a few dark-tuned effects are guarded.
+   ================================================================== */
+html[data-theme="light"] {
+  --accent:        #BC5F1E;
+  --accent-deep:   #974915;
+  --accent-soft:   rgba(188, 95, 30, 0.13);
+  --accent-glow:   rgba(188, 95, 30, 0.28);
+  --green:         #4E8A5C;
+  --green-deep:    #3E6F44;
+  --red:           #C8392F;
+  --red-deep:      #A22923;
+  --amber:         #B0851C;
+  --amber-deep:    #8A6614;
+  --burgundy:      #A5333F;
+  --burgundy-deep: #7A1F2D;
+
+  --black:    #EFE8D6;
+  --ink:      #F7F2E6;
+  --ink-2:    #FBF8F0;
+  --ink-3:    #FFFFFF;
+  --rule:     rgba(26, 22, 16, 0.16);
+  --rule-2:   rgba(26, 22, 16, 0.07);
+
+  --cream:    #1C1813;
+  --cream-2:  #332D22;
+  --cream-3:  #5E5547;
+  --cream-4:  #786E5A;
+  --shade:    247, 242, 230;
+}
+/* Dark-tuned effects that don't translate to a light background */
+html[data-theme="light"] .hero-sparkles { display: none; }
+html[data-theme="light"] body::before,
+html[data-theme="light"] body::after { display: none; }
+/* Foil wordmark uses light-copper stops — fall back to solid copper on light */
+html[data-theme="light"] .topbar-logo .word { -webkit-text-fill-color: var(--accent); }
+/* Topbar background is a hardcoded dark rgba — lighten it for the light theme */
+html[data-theme="light"] .topbar { background: rgba(239, 232, 214, 0.82); }
+html[data-theme="light"] .topbar.scrolled {
+  background: rgba(239, 232, 214, 0.96);
+  border-bottom-color: rgba(26, 22, 16, 0.16);
+}
+
+/* ----- Theme toggle button (topbar) ----- */
+.theme-toggle {
+  width: 38px; height: 38px; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  color: var(--cream-3);
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease;
+}
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+.theme-toggle svg { display: block; }
+.theme-toggle .ic-moon { display: none; }
+html[data-theme="light"] .theme-toggle .ic-sun { display: none; }
+html[data-theme="light"] .theme-toggle .ic-moon { display: block; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
@@ -1345,7 +1407,7 @@ section.section { padding: 148px 0; position: relative; }
   color: var(--ink);
 }
 .founder .s-eye { color: var(--accent-deep); }
-.founder .s-eye::before { background: rgba(22, 20, 18, 0.3); }
+.founder .s-eye::before { background: rgba(var(--shade), 0.3); }
 .founder h2 { color: var(--ink); font-style: italic; }
 .founder .grid {
   display: grid;
@@ -1367,21 +1429,21 @@ section.section { padding: 148px 0; position: relative; }
 .founder .portrait .silhouette {
   font-family: var(--display); font-style: italic;
   font-size: 220px; line-height: 0.9;
-  color: rgba(22,20,18,0.18); margin: 0;
+  color: rgba(var(--shade),0.18); margin: 0;
   letter-spacing: -0.04em;
 }
 .founder .portrait .lbl {
   position: absolute; bottom: 28px;
-  font-size: 10px; letter-spacing: 0.3em; color: rgba(22,20,18,0.5); font-weight: 700;
+  font-size: 10px; letter-spacing: 0.3em; color: rgba(var(--shade),0.5); font-weight: 700;
   text-transform: uppercase;
 }
 .founder .portrait::after {
   content: ""; position: absolute; inset: 24px;
-  border: 1px solid rgba(22,20,18,0.2);
+  border: 1px solid rgba(var(--shade),0.2);
   pointer-events: none;
 }
 .founder .copy .subrole {
-  font-size: 13px; color: rgba(22,20,18,0.5); letter-spacing: 0.04em;
+  font-size: 13px; color: rgba(var(--shade),0.5); letter-spacing: 0.04em;
   margin: 0 0 32px;
 }
 .founder .copy .quote {
@@ -1397,7 +1459,7 @@ section.section { padding: 148px 0; position: relative; }
 .founder .ppb-line {
   margin-top: 36px;
   padding-top: 24px;
-  border-top: 1px solid rgba(22,20,18,0.15);
+  border-top: 1px solid rgba(var(--shade),0.15);
   display: flex; align-items: center; gap: 18px;
 }
 .founder .ppb-line .seal {
@@ -1414,7 +1476,7 @@ section.section { padding: 148px 0; position: relative; }
   font-size: 22px; color: var(--ink); font-weight: 500;
 }
 .founder .ppb-line .meta .s {
-  font-size: 12px; color: rgba(22,20,18,0.5); letter-spacing: 0.04em;
+  font-size: 12px; color: rgba(var(--shade),0.5); letter-spacing: 0.04em;
   margin-top: 2px;
 }
 .founder .signature {
@@ -1564,13 +1626,13 @@ html:not(.motion-ready) .faq-item.open .faq-a {
 }
 .cta > * { position: relative; z-index: 1; }
 .cta .s-eye { color: var(--accent-deep); margin: 0 auto 22px; }
-.cta .s-eye::before { background: rgba(22, 20, 18, 0.3); }
+.cta .s-eye::before { background: rgba(var(--shade), 0.3); }
 .cta h2 { color: var(--ink); font-style: italic; max-width: 780px; margin: 0 auto; }
 .cta h2 em { color: var(--accent-deep); }
 .cta .sub {
   font-family: var(--display); font-style: italic;
   font-size: clamp(22px, 2.2vw, 30px);
-  color: rgba(22,20,18,0.65);
+  color: rgba(var(--shade),0.65);
   margin: 32px auto 48px;
   max-width: 640px;
 }

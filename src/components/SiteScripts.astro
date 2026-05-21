@@ -13,6 +13,23 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  // Theme toggle (light / dark) — persisted in localStorage
+  const themeBtn = document.getElementById('themeToggle');
+  if (themeBtn) {
+    const setTheme = (t) => {
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+      else document.documentElement.removeAttribute('data-theme');
+      themeBtn.setAttribute('aria-pressed', String(t === 'light'));
+      themeBtn.setAttribute('aria-label', t === 'light' ? 'Увімкнути темну тему' : 'Увімкнути світлу тему');
+    };
+    setTheme(document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+    themeBtn.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      setTheme(next);
+      try { localStorage.setItem('matsola_theme', next); } catch (e) {}
+    });
+  }
+
   // Mobile menu
   const burger = document.getElementById('burger');
   const mmenu = document.getElementById('mobileMenu');
