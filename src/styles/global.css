@@ -631,6 +631,7 @@ h4 { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.2; }
 .marquee-track {
   display: flex;
   animation: marquee 60s linear infinite;
+  will-change: transform;
   white-space: nowrap;
   font-family: var(--display); font-style: italic;
   font-size: 24px;
@@ -1715,9 +1716,10 @@ section { scroll-margin-top: 80px; }
 /* ===== Counter shimmer when animating ===== */
 .count[data-counting="1"] { color: var(--accent); }
 
-/* ===== Marquee speed-up on hover ===== */
-.marquee:hover .marquee-track { animation-duration: 25s; }
-.marquee-track { transition: animation-duration .3s; }
+/* ===== Marquee — pause on hover =====
+   Speeding up via animation-duration re-maps the running animation's
+   playhead and causes a visible ~1300px jump. Pausing is smooth. */
+.marquee:hover .marquee-track { animation-play-state: paused; }
 
 /* ===== Improved hero floating ticker ===== */
 .hero-product .ticker { animation: tickerFade 2.5s ease-out 0.4s both; }
