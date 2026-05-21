@@ -1761,6 +1761,11 @@ section { scroll-margin-top: 80px; }
 .pack { transform-style: preserve-3d; transition: transform .25s ease; }
 .tilt-stage { perspective: 1400px; }
 
+/* ===== Hero pack — interactive 3D ===== */
+.hero-product { perspective: 1100px; }
+.hero .pack { transition: none; will-change: transform; }
+.hero .pack-window { transform: translateZ(16px); }
+
 /* ===== Glow that follows mouse on cards ===== */
 .mom-card, .pcard-glow, .ret-card, .nc, .fp-tile, .fp-combo, .step, .stat-card, .card-2, .bs-item {
   position: relative;

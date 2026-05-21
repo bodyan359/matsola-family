@@ -259,6 +259,47 @@
     }
   }
 
+  // ---- Hero pack — interactive 3D (cursor tilt + gentle idle rotation)
+  (function () {
+    const hero = document.querySelector('.hero');
+    const pack = hero && hero.querySelector('.pack');
+    if (!hero || !pack) return;
+    const still = () =>
+      matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      document.documentElement.getAttribute('data-motion') === 'off';
+    const lerp = (a, b, k) => a + (b - a) * k;
+    let tgX = 0, tgY = 0, curX = 0, curY = 0, phase = 0, raf = 0, alive = false;
+
+    if (isFinePointer) {
+      hero.addEventListener('pointermove', (e) => {
+        const r = hero.getBoundingClientRect();
+        tgX = Math.max(-1, Math.min(1, (e.clientX - r.left - r.width / 2) / (r.width / 2)));
+        tgY = Math.max(-1, Math.min(1, (e.clientY - r.top - r.height / 2) / (r.height / 2)));
+      }, { passive: true });
+      hero.addEventListener('pointerleave', () => { tgX = 0; tgY = 0; });
+    }
+
+    function frame() {
+      if (still()) { pack.style.transform = 'none'; alive = false; return; }
+      phase += 0.016;
+      const aimY = Math.sin(phase * 0.55) * 6 + tgX * 13;     // idle yaw + cursor
+      const aimX = Math.cos(phase * 0.42) * 2.5 - tgY * 10;   // idle pitch + cursor
+      curX = lerp(curX, aimX, 0.075);
+      curY = lerp(curY, aimY, 0.075);
+      pack.style.transform = 'rotateX(' + curX.toFixed(2) + 'deg) rotateY(' + curY.toFixed(2) + 'deg)';
+      raf = requestAnimationFrame(frame);
+    }
+    function start() {
+      if (alive) return;
+      if (still()) { pack.style.transform = 'none'; return; }
+      alive = true; frame();
+    }
+    function stop() { alive = false; cancelAnimationFrame(raf); }
+
+    new IntersectionObserver((es) => { es[0].isIntersecting ? start() : stop(); },
+      { rootMargin: '120px' }).observe(hero);
+  })();
+
   // ====================================================================
   //  HERO EMBER SPARKLES
   //  Ported from 21st.dev — aceternity/sparkles (originally React + tsparticles)
