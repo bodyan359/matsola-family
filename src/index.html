@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="theme-color" content="#0E0D0B" />
+<meta name="theme-color" content="#2F2C28" />
 <meta name="description" content="Matsola Family — курячі слайси з грецькими травами та кабаноси з натуральним копченням. 71% білків. Без сої. Без підсилювачів. Тільки м'ясо і спеції." />
 <meta name="keywords" content="Matsola Family, Мацола, кабаноси, курячі слайси, м'ясні снеки, ППБ, Перша Приватна Броварня, натуральне копчення, високобілкові снеки, без сої" />
 <meta name="author" content="Matsola Family · Перша Приватна Броварня" />
@@ -62,10 +62,10 @@
   --burgundy:      #B23A4A;
   --burgundy-deep: #7A1F2D;
 
-  --black:    #0E0D0B;
-  --ink:      #161412;
-  --ink-2:    #1E1B17;
-  --ink-3:    #2A251E;
+  --black:    #2F2C28;
+  --ink:      #383530;
+  --ink-2:    #423E38;
+  --ink-3:    #4E4940;
   --rule:     rgba(232, 220, 196, 0.14);
   --rule-2:   rgba(232, 220, 196, 0.06);
 
@@ -1049,6 +1049,10 @@ section.section { padding: 130px 0; position: relative; }
 }
 .standards .check-list .row .text .t { font-size: 14.5px; color: var(--cream); font-weight: 500; }
 .standards .check-list .row .text .s { font-size: 12.5px; color: var(--cream-4); margin-top: 3px; }
+/* Full-width card-2 (no twocol wrapper): 2-col checklist, spacing from nutri-grid */
+.standards .card-2.wide { margin-top: 30px; }
+.standards .card-2.wide .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+@media (max-width: 700px) { .standards .card-2.wide .check-list { grid-template-columns: 1fr; } }
 
 /* ===== Protein comparison ===== */
 .protein { background: var(--ink); }
@@ -1107,6 +1111,8 @@ section.section { padding: 130px 0; position: relative; }
 
 /* ===== Moments ===== */
 .moments { background: var(--black); }
+.protein .mom-grid { margin-top: 80px; }
+@media (max-width: 880px) { .protein .mom-grid { margin-top: 56px; } }
 .moments .mom-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2537,16 +2543,17 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
   </div>
 </section>
 
-<!-- NUTRITION -->
-<section class="section nutri" id="nutri">
+<!-- COMPOSITION (nutrition + standards merged) -->
+<section class="section nutri standards" id="nutri">
   <div class="wrap">
     <div class="sec-head">
       <div class="reveal">
         <p class="s-eye">Склад</p>
-        <h2 class="s-title">Тільки те,<br><em>що потрібно</em></h2>
+        <h2 class="s-title">Чесно про те,<br><em>що всередині</em></h2>
       </div>
-      <p class="s-lead reveal d1">Читається з першого разу — бо там немає нічого зайвого.</p>
+      <p class="s-lead reveal d1">Короткий склад — на видноті, без дрібного шрифту.</p>
     </div>
+
     <div class="nutri-grid">
       <div class="nc reveal">
         <div class="nc-head">
@@ -2560,8 +2567,6 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
           <div class="nc-row bold"><span class="nc-lbl">Енергетична цінність</span><span class="nc-val">340 ккал</span></div>
           <div class="nc-row"><span class="nc-lbl">Білки</span><span class="nc-val hi">71 г</span></div>
           <div class="nc-row"><span class="nc-lbl">Жири</span><span class="nc-val">4 г</span></div>
-          <div class="nc-row"><span class="nc-lbl">Вуглеводи</span><span class="nc-val">0 г</span></div>
-          <div class="nc-row"><span class="nc-lbl">Сіль</span><span class="nc-val">2.1 г</span></div>
         </div>
         <div class="nc-ing">
           <p class="nc-ing-lbl">Склад</p>
@@ -2581,8 +2586,6 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
           <div class="nc-row bold"><span class="nc-lbl">Енергетична цінність</span><span class="nc-val">450 ккал</span></div>
           <div class="nc-row"><span class="nc-lbl">Білки</span><span class="nc-val hi">24 г</span></div>
           <div class="nc-row"><span class="nc-lbl">Жири</span><span class="nc-val">38 г</span></div>
-          <div class="nc-row"><span class="nc-lbl">Вуглеводи</span><span class="nc-val">1.2 г</span></div>
-          <div class="nc-row"><span class="nc-lbl">Сіль</span><span class="nc-val">2.4 г</span></div>
         </div>
         <div class="nc-ing">
           <p class="nc-ing-lbl">Склад</p>
@@ -2590,69 +2593,36 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- STANDARDS -->
-<section class="section standards" id="standards">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="reveal">
-        <p class="s-eye">Наші стандарти</p>
-        <h2 class="s-title">Чесно про те,<br><em>що всередині</em></h2>
-      </div>
-      <p class="s-lead reveal d1">Ми не приховуємо склад дрібним шрифтом.</p>
-    </div>
-
-    <div class="stats-row">
-      <div class="stat-card reveal"><div class="v"><span class="count" data-to="71" data-suffix="%">71%</span></div><div class="l">Білків у<br>курячих слайсах</div></div>
-      <div class="stat-card reveal d1"><div class="v"><span class="count" data-to="0" data-suffix="&thinsp;г">0&thinsp;г</span></div><div class="l">Вуглеводів<br>у слайсах</div></div>
-      <div class="stat-card reveal d2"><div class="v">4–5</div><div class="l">Інгредієнтів<br>у складі</div></div>
-      <div class="stat-card reveal d3"><div class="v"><span class="count" data-to="100" data-suffix="%">100%</span></div><div class="l">Натуральне<br>м'ясо</div></div>
-    </div>
-
-    <div class="twocol">
-      <div class="card-2 reveal">
-        <div class="ttl"><span class="dot"></span>Clean Label</div>
-        <p class="sub">Ми ставимо склад на лицьовій стороні пачки — бо нам нічого ховати.</p>
-        <div class="ing-row">
-          <div class="row"><span class="name">М'ясо</span><div class="bar"><div class="fill" data-w style="--w:85%;"></div></div><span class="pct">85%</span></div>
-          <div class="row"><span class="name">Сіль</span><div class="bar"><div class="fill" data-w style="--w:8%;"></div></div><span class="pct">8%</span></div>
-          <div class="row"><span class="name">Спеції</span><div class="bar"><div class="fill" data-w style="--w:7%;"></div></div><span class="pct">7%</span></div>
+    <div class="card-2 green reveal d1 wide">
+      <div class="ttl"><span class="dot"></span>Чому натуральне</div>
+      <div class="check-list">
+        <div class="row">
+          <div class="icon">✓</div>
+          <div class="text">
+            <div class="t">Справжнє копчення</div>
+            <div class="s">На твердих породах деревини — не рідкий дим</div>
+          </div>
         </div>
-        <div class="stamp">Читається за 5 секунд</div>
-      </div>
-
-      <div class="card-2 green reveal d1">
-        <div class="ttl"><span class="dot"></span>Чому натуральне</div>
-        <div class="check-list">
-          <div class="row">
-            <div class="icon">✓</div>
-            <div class="text">
-              <div class="t">Справжнє копчення</div>
-              <div class="s">На твердих породах деревини — не рідкий дим</div>
-            </div>
+        <div class="row">
+          <div class="icon">✓</div>
+          <div class="text">
+            <div class="t">Без ГМО</div>
+            <div class="s">Перевірена сировина від українських постачальників</div>
           </div>
-          <div class="row">
-            <div class="icon">✓</div>
-            <div class="text">
-              <div class="t">Без ГМО</div>
-              <div class="s">Перевірена сировина від українських постачальників</div>
-            </div>
+        </div>
+        <div class="row">
+          <div class="icon">✓</div>
+          <div class="text">
+            <div class="t">Без хімії</div>
+            <div class="s">Жодних Е-добавок, підсилювачів або консервантів</div>
           </div>
-          <div class="row">
-            <div class="icon">✓</div>
-            <div class="text">
-              <div class="t">Без хімії</div>
-              <div class="s">Жодних Е-добавок, підсилювачів або консервантів</div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="icon">✓</div>
-            <div class="text">
-              <div class="t">Виробництво в Україні</div>
-              <div class="s">Повний контроль якості на кожному етапі</div>
-            </div>
+        </div>
+        <div class="row">
+          <div class="icon">✓</div>
+          <div class="text">
+            <div class="t">Виробництво в Україні</div>
+            <div class="s">Повний контроль якості на кожному етапі</div>
           </div>
         </div>
       </div>
@@ -2660,15 +2630,15 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
   </div>
 </section>
 
-<!-- PROTEIN COMPARISON -->
-<section class="section protein" id="protein">
+<!-- PROTEIN COMPARISON + MOMENTS (merged) -->
+<section class="section protein moments" id="protein">
   <div class="wrap">
     <div class="sec-head">
       <div class="reveal">
-        <p class="s-eye">Білок у снеках</p>
-        <h2 class="s-title">Matsola Family vs<br><em>популярні снеки</em></h2>
+        <p class="s-eye">Чому Matsola</p>
+        <h2 class="s-title">Чесний білок<br><em>у твоєму дні</em></h2>
       </div>
-      <p class="s-lead reveal d1">Чесне порівняння — скільки білка на 100г.</p>
+      <p class="s-lead reveal d1">Чесне порівняння — і моменти, коли снек якраз доречний.</p>
     </div>
     <div class="ptable-wrap reveal">
       <table class="ptable">
@@ -2733,20 +2703,8 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
       </table>
     </div>
     <p class="note">* Дані на 100г. Точні значення — на упаковці.</p>
-  </div>
-</section>
 
-<!-- MOMENTS -->
-<section class="section moments" id="moments">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="reveal">
-        <p class="s-eye">6 Моментів</p>
-        <h2 class="s-title">Matsola Family<br><em>в твоєму дні</em></h2>
-      </div>
-      <p class="s-lead reveal d1">Не змінюй плани заради перекусу. Matsola Family там, де ти вже є.</p>
-    </div>
-    <div class="mom-grid">
+    <div class="mom-grid" id="moments">
       <article class="mom-card reveal">
         <div class="mom-num">— 01</div>
         <p class="mom-title">Між справами</p>
