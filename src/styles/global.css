@@ -681,34 +681,54 @@ h4 { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.2; }
   letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
 }
 
-/* ===== Marquee ===== */
-.marquee {
+/* ===== Trustbar (static pill badges) ===== */
+.trustbar {
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  overflow: hidden;
-  padding: 22px 0;
   background: var(--ink);
+  padding: 28px 20px;
   position: relative; z-index: 1;
 }
-.marquee-track {
+.trust-row {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 1200px;
   display: flex;
-  animation: marquee 60s linear infinite;
-  will-change: transform;
-  white-space: nowrap;
-  font-family: var(--display); font-style: italic;
-  font-size: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 14px;
+}
+.trust-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: rgba(232, 220, 196, 0.025);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--cream-2);
-  width: max-content;
+  transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
 }
-.marquee-track .m-item { flex-shrink: 0; padding: 0 30px; display: inline-flex; align-items: center; }
-.marquee-track .m-item::after {
-  content: ""; display: inline-block;
-  width: 6px; height: 6px; background: var(--accent); border-radius: 50%;
-  margin-left: 30px;
+.trust-pill:hover {
+  border-color: rgba(232, 220, 196, 0.38);
+  background: rgba(232, 220, 196, 0.06);
+  color: var(--cream);
+  transform: translateY(-1px);
 }
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+.trust-icon {
+  width: 16px; height: 16px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .trustbar { padding: 22px 14px; }
+  .trust-pill { font-size: 11px; padding: 8px 14px; gap: 8px; letter-spacing: 0.06em; }
+  .trust-icon { width: 14px; height: 14px; }
 }
 
 /* ===== Badge strip ===== */
@@ -1786,10 +1806,6 @@ section { scroll-margin-top: 80px; }
 .count[data-counting="1"] { color: var(--accent); }
 
 /* ===== Marquee — pause on hover =====
-   Speeding up via animation-duration re-maps the running animation's
-   playhead and causes a visible ~1300px jump. Pausing is smooth. */
-.marquee:hover .marquee-track { animation-play-state: paused; }
-
 /* ===== Improved hero floating ticker ===== */
 .hero-product .ticker { animation: tickerFade 2.5s ease-out 0.4s both; }
 @keyframes tickerFade {
@@ -1909,7 +1925,6 @@ html[data-motion="off"] *::after {
   transition-duration: 0.01ms !important;
 }
 html[data-motion="off"] .hero-product .pack-frame { animation: none !important; }
-html[data-motion="off"] .marquee-track { animation: none !important; }
 html[data-motion="off"] .cursor-dot,
 html[data-motion="off"] .cursor-ring { display: none !important; }
 html[data-motion="off"] body { cursor: auto !important; }
@@ -2059,7 +2074,7 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
 /* Print fallback */
 @media print {
   body { background: #fff; color: #000; }
-  .topbar, .marquee, .cta, .mobile-menu, footer { display: none; }
+  .topbar, .trustbar, .cta, .mobile-menu, footer { display: none; }
 }
 
 /* ==================================================================
