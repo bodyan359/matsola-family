@@ -16,10 +16,10 @@
   --burgundy:      #B23A4A;
   --burgundy-deep: #7A1F2D;
 
-  --black:    #0E0D0B;
-  --ink:      #161412;
-  --ink-2:    #1E1B17;
-  --ink-3:    #2A251E;
+  --black:    #2F2C28;
+  --ink:      #383530;
+  --ink-2:    #423E38;
+  --ink-3:    #4E4940;
   --rule:     rgba(232, 220, 196, 0.14);
   --rule-2:   rgba(232, 220, 196, 0.06);
 
@@ -1078,9 +1078,15 @@ section.section { padding: 148px 0; position: relative; }
 }
 .standards .check-list .row .text .t { font-size: 14.5px; color: var(--cream); font-weight: 500; }
 .standards .check-list .row .text .s { font-size: 12.5px; color: var(--cream-4); margin-top: 3px; }
+/* Full-width card-2 (no twocol wrapper): 2-col checklist, spacing from grid above */
+.standards .card-2.wide { margin-top: 30px; }
+.standards .card-2.wide .check-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+@media (max-width: 700px) { .standards .card-2.wide .check-list { grid-template-columns: 1fr; } }
 
 /* ===== Protein comparison ===== */
 .protein { background: var(--ink); }
+.protein .mom-grid { margin-top: 80px; }
+@media (max-width: 880px) { .protein .mom-grid { margin-top: 56px; } }
 .protein .ptable-wrap {
   border: 1px solid var(--rule);
   background: var(--black);
