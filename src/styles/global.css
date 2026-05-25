@@ -1223,12 +1223,6 @@ section.section { padding: 148px 0; position: relative; }
 }
 .fp-tile.wide { grid-column: span 2; }
 .fp-tile:hover { background: var(--ink-2); transform: translateY(-2px); border-color: rgba(232,220,196,0.25); }
-.fp-tile .fp-letter {
-  font-family: var(--display); font-style: italic;
-  font-size: 42px; line-height: 1; color: var(--accent);
-  margin-bottom: 14px;
-  font-weight: 500;
-}
 .fp-tile .fp-name {
   font-family: var(--display); font-style: italic;
   font-size: 26px; color: var(--cream); margin: 0 0 8px;
