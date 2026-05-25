@@ -1733,38 +1733,6 @@ section { scroll-margin-top: 80px; }
   box-shadow: 0 0 12px var(--accent-glow);
 }
 
-/* ===== Custom cursor (desktop only) ===== */
-@media (hover: hover) and (pointer: fine) {
-  body.cursor-on { cursor: none; }
-  body.cursor-on a, body.cursor-on button, body.cursor-on .pack { cursor: none; }
-  .cursor-dot, .cursor-ring {
-    position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999;
-    border-radius: 50%; mix-blend-mode: difference;
-    will-change: transform;
-  }
-  .cursor-dot {
-    width: 6px; height: 6px;
-    background: var(--cream);
-    transform: translate(-50%, -50%);
-    transition: transform .12s ease, width .2s ease, height .2s ease, background .2s ease;
-  }
-  .cursor-ring {
-    width: 34px; height: 34px;
-    border: 1px solid rgba(232,220,196,0.55);
-    transform: translate(-50%, -50%) scale(1);
-    transition: transform .25s cubic-bezier(.2,.7,.3,1), border-color .25s, width .25s, height .25s, opacity .25s;
-  }
-  body.cur-link .cursor-ring { width: 60px; height: 60px; border-color: var(--accent); }
-  body.cur-link .cursor-dot { width: 4px; height: 4px; background: var(--accent); }
-  body.cur-drag .cursor-ring { width: 80px; height: 80px; border-color: var(--cream); }
-  body.cur-drag .cursor-ring::before {
-    content: "ОБЕРТАЙ"; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-    font-size: 8px; letter-spacing: 0.22em; color: var(--cream);
-    font-family: var(--sans); font-weight: 700;
-    mix-blend-mode: normal;
-  }
-}
-
 /* ===== Text reveal mask (per-line) ===== */
 .line-mask { display: inline-block; overflow: hidden; vertical-align: top; line-height: 1.05; }
 .line-mask > span {
@@ -1925,8 +1893,6 @@ html[data-motion="off"] *::after {
   transition-duration: 0.01ms !important;
 }
 html[data-motion="off"] .hero-product .pack-frame { animation: none !important; }
-html[data-motion="off"] .cursor-dot,
-html[data-motion="off"] .cursor-ring { display: none !important; }
 html[data-motion="off"] body { cursor: auto !important; }
 
 /* ----- Underline links mode (WCAG 1.4.1) ----- */
@@ -2067,7 +2033,6 @@ html[data-contrast="hi"] .a11y-panel { background: #000; border-color: #FFF; }
     scroll-behavior: auto !important;
   }
   .hero-product .pack-frame { animation: none; }
-  .cursor-dot, .cursor-ring { display: none; }
   body { cursor: auto !important; }
 }
 
