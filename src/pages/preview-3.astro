@@ -1,0 +1,344 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <main class="pv" style="padding: 60px 0 120px;">
+    <div class="pv-head">
+      <a href="/matsola-family/" class="pv-back">← На головну</a>
+      <h1>Nutrition · варіанти</h1>
+      <p class="pv-desc">5 варіантів блоку «Чесно про те, що всередині». Поточний — внизу.</p>
+      <nav class="pv-nav">
+        <a href="/matsola-family/preview-1/">1·Hero</a>
+        <a href="/matsola-family/preview-2/">2·Products</a>
+        <a href="/matsola-family/preview-3/" class="on">3·Nutrition</a>
+        <a href="/matsola-family/preview-4/">4·Protein+Moments</a>
+        <a href="/matsola-family/preview-5/">5·Founder</a>
+        <a href="/matsola-family/preview-6/">6·Cta</a>
+      </nav>
+    </div>
+
+    <!-- V1: Side-by-side comparison table -->
+    <section class="pv-v" data-v="1">
+      <p class="pv-label">Варіант 1 · Comparison table (один погляд)</p>
+      <div class="n1-wrap">
+        <div class="n1-head">
+          <p class="n1-eye">Склад</p>
+          <h2>Чесно про те,<br><em>що всередині</em></h2>
+        </div>
+        <table class="n1-table">
+          <thead>
+            <tr>
+              <th>На 100 г</th>
+              <th class="n1-col-c">Курячі Слайси</th>
+              <th class="n1-col-c">Кабаноси</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Енергетична цінність</td><td>340 ккал</td><td>450 ккал</td></tr>
+            <tr><td>Білки</td><td><b>71 г</b></td><td><b>24 г</b></td></tr>
+            <tr><td>Жири</td><td>4 г</td><td>38 г</td></tr>
+            <tr><td>Без сої</td><td>✓</td><td>✓</td></tr>
+            <tr><td>Без ГМО</td><td>✓</td><td>✓</td></tr>
+            <tr><td>Без рідкого диму</td><td>✓</td><td>✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- V2: Accordion / Expandable -->
+    <section class="pv-v" data-v="2">
+      <p class="pv-label">Варіант 2 · Expandable accordion</p>
+      <div class="n2-wrap">
+        <div class="n2-head">
+          <p class="n2-eye">Склад</p>
+          <h2>Чесно про те,<br><em>що всередині</em></h2>
+        </div>
+        <div class="n2-list">
+          <details class="n2-item" open>
+            <summary>
+              <span class="n2-sum-name">Курячі Слайси</span>
+              <span class="n2-sum-tag g">71% Білків</span>
+              <span class="n2-chev">+</span>
+            </summary>
+            <div class="n2-body">
+              <div class="n2-facts">
+                <div><span>340</span>ккал</div>
+                <div><span>71 г</span>білки</div>
+                <div><span>4 г</span>жири</div>
+              </div>
+              <p>Куряче філе, сіль, грецькі трави (розмарин, базилік, петрушка), чорний перець. <strong>Без сої. Без крохмалю. Без консервантів.</strong></p>
+            </div>
+          </details>
+          <details class="n2-item">
+            <summary>
+              <span class="n2-sum-name">Кабаноси Класичні</span>
+              <span class="n2-sum-tag a">24г Білків</span>
+              <span class="n2-chev">+</span>
+            </summary>
+            <div class="n2-body">
+              <div class="n2-facts">
+                <div><span>450</span>ккал</div>
+                <div><span>24 г</span>білки</div>
+                <div><span>38 г</span>жири</div>
+              </div>
+              <p>Свинина, яловичина, сіль, спеції (перець чорний, часник, мускатний горіх), натуральна оболонка. <strong>Без сої. Без підсилювачів. Без рідкого диму.</strong></p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- V3: Big numbers focus -->
+    <section class="pv-v" data-v="3">
+      <p class="pv-label">Варіант 3 · Big numbers focus (impact)</p>
+      <div class="n3-wrap">
+        <p class="n3-eye">— Склад</p>
+        <h2 class="n3-title">Чесно про те,<br><em>що всередині</em></h2>
+        <div class="n3-mega">
+          <div class="n3-col">
+            <div class="n3-prod">Курячі Слайси</div>
+            <div class="n3-big">71<span>%</span></div>
+            <div class="n3-cap">білка · 340 ккал · 4г жирів</div>
+          </div>
+          <div class="n3-divider"></div>
+          <div class="n3-col">
+            <div class="n3-prod">Кабаноси</div>
+            <div class="n3-big">24<span>г</span></div>
+            <div class="n3-cap">білка · 450 ккал · 38г жирів</div>
+          </div>
+        </div>
+        <p class="n3-foot">Без сої · Без ГМО · Без підсилювачів · Без рідкого диму</p>
+      </div>
+    </section>
+
+    <!-- V4: Donut chart infographic -->
+    <section class="pv-v" data-v="4">
+      <p class="pv-label">Варіант 4 · Donut chart (infographic)</p>
+      <div class="n4-wrap">
+        <div class="n4-head">
+          <p class="n4-eye">Склад</p>
+          <h2>Що всередині<br><em>пачки</em></h2>
+        </div>
+        <div class="n4-grid">
+          <div class="n4-card">
+            <div class="n4-donut" style="--p: 71;">
+              <div class="n4-donut-inner">
+                <span class="n4-donut-n">71%</span>
+                <span class="n4-donut-l">білка</span>
+              </div>
+            </div>
+            <h3>Курячі Слайси</h3>
+            <ul>
+              <li><span class="dot a"></span>Білки <b>71 г</b></li>
+              <li><span class="dot b"></span>Жири <b>4 г</b></li>
+              <li><span class="dot c"></span>Інше <b>25 г</b></li>
+            </ul>
+          </div>
+          <div class="n4-card">
+            <div class="n4-donut" style="--p: 24;">
+              <div class="n4-donut-inner">
+                <span class="n4-donut-n">24<small>г</small></span>
+                <span class="n4-donut-l">білка</span>
+              </div>
+            </div>
+            <h3>Кабаноси</h3>
+            <ul>
+              <li><span class="dot a"></span>Білки <b>24 г</b></li>
+              <li><span class="dot b"></span>Жири <b>38 г</b></li>
+              <li><span class="dot c"></span>Інше <b>38 г</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V5: Minimal text list -->
+    <section class="pv-v" data-v="5">
+      <p class="pv-label">Варіант 5 · Minimal editorial list (text-only)</p>
+      <div class="n5-wrap">
+        <p class="n5-eye">— Склад. Без дрібного шрифту.</p>
+        <h2 class="n5-title">Що всередині</h2>
+        <div class="n5-cols">
+          <div class="n5-col">
+            <h3>Курячі Слайси</h3>
+            <p class="n5-tag">71% білка · 340 ккал</p>
+            <p class="n5-list">Куряче філе. Сіль. Розмарин, базилік, петрушка. Чорний перець.</p>
+            <p class="n5-no">— без сої, без крохмалю, без консервантів —</p>
+          </div>
+          <div class="n5-col">
+            <h3>Кабаноси Класичні</h3>
+            <p class="n5-tag">24 г білка · 450 ккал</p>
+            <p class="n5-list">Свинина, яловичина. Сіль. Перець чорний, часник, мускатний горіх. Натуральна оболонка.</p>
+            <p class="n5-no">— без сої, без підсилювачів, без рідкого диму —</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current -->
+    <section class="pv-v" data-v="0">
+      <p class="pv-label">Поточний · 2 картки + Чому натуральне (на сайті зараз)</p>
+      <div class="n0-wrap">
+        <div class="n0-head">
+          <p class="n0-eye">Склад</p>
+          <h2>Чесно про те,<br><em>що всередині</em></h2>
+        </div>
+        <div class="n0-grid">
+          <div class="n0-card">
+            <div class="n0-card-head">
+              <div>
+                <p class="n0-htitle">Курячі Слайси</p>
+                <p class="n0-hsub">Поживна цінність на 100 г</p>
+              </div>
+              <span class="n0-tag g">71% Білків</span>
+            </div>
+            <div class="n0-facts">
+              <div><span>Енергетична цінність</span><b>340 ккал</b></div>
+              <div><span>Білки</span><b class="hi">71 г</b></div>
+              <div><span>Жири</span><b>4 г</b></div>
+            </div>
+            <p class="n0-ing">Куряче філе, сіль, грецькі трави. <strong>Без сої.</strong></p>
+          </div>
+          <div class="n0-card">
+            <div class="n0-card-head">
+              <div>
+                <p class="n0-htitle">Кабаноси</p>
+                <p class="n0-hsub">Поживна цінність на 100 г</p>
+              </div>
+              <span class="n0-tag a">24г Білків</span>
+            </div>
+            <div class="n0-facts">
+              <div><span>Енергетична цінність</span><b>450 ккал</b></div>
+              <div><span>Білки</span><b class="hi">24 г</b></div>
+              <div><span>Жири</span><b>38 г</b></div>
+            </div>
+            <p class="n0-ing">Свинина, яловичина, сіль, спеції. <strong>Без сої.</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Shared preview chrome */
+  .pv-head { max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; }
+  .pv-back { display: inline-block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-4); text-decoration: none; margin-bottom: 24px; }
+  .pv-head h1 { font-family: var(--display); font-style: italic; font-size: clamp(36px, 5vw, 56px); color: var(--cream); margin: 0 0 12px; font-weight: 500; }
+  .pv-desc { color: var(--cream-3); font-size: 16px; max-width: 640px; margin: 0 0 24px; }
+  .pv-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pv-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-3); text-decoration: none; background: var(--ink); transition: all .2s; }
+  .pv-nav a:hover { color: var(--cream); border-color: rgba(232,220,196,0.35); }
+  .pv-nav a.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .pv-v { margin: 40px 0; }
+  .pv-label { max-width: 1200px; margin: 0 auto 14px; padding: 0 24px; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); font-weight: 700; }
+
+  /* V1: Comparison table */
+  .n1-wrap { max-width: 1100px; margin: 0 auto; padding: 50px 24px; background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .n1-head { margin-bottom: 40px; }
+  .n1-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .n1-head h2 { font-family: var(--display); font-size: clamp(34px, 5vw, 52px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .n1-head h2 em { font-style: italic; color: var(--accent); }
+  .n1-table { width: 100%; border-collapse: collapse; }
+  .n1-table th, .n1-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--rule); }
+  .n1-table thead th { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-4); font-weight: 700; }
+  .n1-table .n1-col-c { text-align: center; }
+  .n1-table tbody td:first-child { color: var(--cream-3); font-size: 14px; }
+  .n1-table tbody td:not(:first-child) { text-align: center; font-family: var(--display); font-style: italic; font-size: 22px; color: var(--cream); }
+  .n1-table tbody td b { color: var(--accent); font-weight: 500; font-size: 26px; }
+
+  /* V2: Accordion */
+  .n2-wrap { max-width: 1000px; margin: 0 auto; padding: 50px 24px; background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .n2-head { margin-bottom: 32px; }
+  .n2-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .n2-head h2 { font-family: var(--display); font-size: clamp(34px, 5vw, 52px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .n2-head h2 em { font-style: italic; color: var(--accent); }
+  .n2-list { display: flex; flex-direction: column; gap: 14px; }
+  .n2-item { border: 1px solid var(--rule); background: rgba(232,220,196,0.02); }
+  .n2-item summary { padding: 22px 26px; cursor: pointer; display: flex; align-items: center; gap: 16px; list-style: none; }
+  .n2-item summary::-webkit-details-marker { display: none; }
+  .n2-sum-name { flex: 1; font-family: var(--display); font-style: italic; font-size: 26px; color: var(--cream); font-weight: 500; }
+  .n2-sum-tag { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 6px 12px; font-weight: 700; }
+  .n2-sum-tag.g { background: rgba(122,176,130,0.15); color: var(--green); }
+  .n2-sum-tag.a { background: rgba(229,133,66,0.15); color: var(--accent); }
+  .n2-chev { font-family: var(--display); font-style: italic; font-size: 32px; color: var(--accent); line-height: 1; transition: transform .25s; }
+  .n2-item[open] .n2-chev { transform: rotate(45deg); }
+  .n2-body { padding: 0 26px 28px; }
+  .n2-facts { display: flex; gap: 30px; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-bottom: 18px; }
+  .n2-facts > div { display: flex; flex-direction: column; gap: 4px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-4); font-weight: 700; }
+  .n2-facts > div span { font-family: var(--display); font-style: italic; font-size: 24px; color: var(--accent); font-weight: 500; }
+  .n2-body p { font-size: 14px; color: var(--cream-3); line-height: 1.7; margin: 0; }
+  .n2-body strong { color: var(--green); }
+
+  /* V3: Big numbers */
+  .n3-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 80px 24px; text-align: center; }
+  .n3-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .n3-title { font-family: var(--display); font-size: clamp(34px, 5vw, 52px); line-height: 1; color: var(--cream); margin: 0 0 60px; font-weight: 500; }
+  .n3-title em { font-style: italic; color: var(--accent); }
+  .n3-mega { display: flex; align-items: center; justify-content: center; gap: 60px; max-width: 1100px; margin: 0 auto 50px; flex-wrap: wrap; }
+  .n3-col { flex: 1; min-width: 280px; }
+  .n3-prod { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cream-3); font-weight: 700; margin-bottom: 16px; }
+  .n3-big { font-family: var(--display); font-style: italic; font-size: clamp(140px, 18vw, 220px); line-height: 0.9; color: var(--accent); font-weight: 500; }
+  .n3-big span { font-size: 0.5em; }
+  .n3-cap { font-size: 13px; color: var(--cream-3); margin-top: 16px; letter-spacing: 0.04em; }
+  .n3-divider { width: 1px; height: 200px; background: var(--rule); }
+  @media (max-width: 760px) { .n3-divider { display: none; } }
+  .n3-foot { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--green); font-weight: 700; }
+
+  /* V4: Donut */
+  .n4-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 60px 24px; }
+  .n4-head { max-width: 1100px; margin: 0 auto 50px; text-align: center; }
+  .n4-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .n4-head h2 { font-family: var(--display); font-size: clamp(34px, 5vw, 52px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .n4-head h2 em { font-style: italic; color: var(--accent); }
+  .n4-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; max-width: 1000px; margin: 0 auto; }
+  .n4-card { padding: 36px 30px; border: 1px solid var(--rule); background: rgba(232,220,196,0.02); text-align: center; }
+  .n4-donut { width: 180px; height: 180px; margin: 0 auto 24px; background: conic-gradient(var(--accent) calc(var(--p) * 1%), rgba(232,220,196,0.08) 0); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; }
+  .n4-donut::before { content: ""; position: absolute; inset: 14px; background: var(--ink); border-radius: 50%; }
+  .n4-donut-inner { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .n4-donut-n { font-family: var(--display); font-style: italic; font-size: 44px; color: var(--accent); font-weight: 500; line-height: 1; }
+  .n4-donut-n small { font-size: 0.55em; }
+  .n4-donut-l { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-3); margin-top: 6px; font-weight: 700; }
+  .n4-card h3 { font-family: var(--display); font-style: italic; font-size: 24px; color: var(--cream); margin: 0 0 18px; font-weight: 500; }
+  .n4-card ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+  .n4-card li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--cream-3); }
+  .n4-card li b { margin-left: auto; color: var(--cream); font-family: var(--display); font-style: italic; font-size: 18px; font-weight: 500; }
+  .n4-card .dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+  .n4-card .dot.a { background: var(--accent); }
+  .n4-card .dot.b { background: var(--cream-3); }
+  .n4-card .dot.c { background: rgba(232,220,196,0.15); }
+  @media (max-width: 760px) { .n4-grid { grid-template-columns: 1fr; } }
+
+  /* V5: Minimal editorial */
+  .n5-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+  .n5-eye { font-family: var(--display); font-style: italic; font-size: 18px; color: var(--accent); margin: 0 0 16px; }
+  .n5-title { font-family: var(--display); font-size: clamp(48px, 7vw, 96px); color: var(--cream); margin: 0 0 50px; font-weight: 500; line-height: 1; }
+  .n5-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .n5-col h3 { font-family: var(--display); font-style: italic; font-size: 28px; color: var(--cream); margin: 0 0 8px; font-weight: 500; }
+  .n5-tag { font-family: ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin: 0 0 24px; font-weight: 600; }
+  .n5-list { font-size: 16px; color: var(--cream-2); line-height: 1.8; margin: 0 0 16px; }
+  .n5-no { font-size: 13px; color: var(--green); font-style: italic; font-family: var(--display); margin: 0; }
+  @media (max-width: 760px) { .n5-cols { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* V0 Current */
+  .n0-wrap { max-width: 1200px; margin: 0 auto; padding: 50px 24px; }
+  .n0-head { margin-bottom: 30px; }
+  .n0-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .n0-head h2 { font-family: var(--display); font-size: clamp(34px, 5vw, 52px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .n0-head h2 em { font-style: italic; color: var(--accent); }
+  .n0-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .n0-card { padding: 36px 30px; border: 1px solid var(--rule); background: rgba(232,220,196,0.02); position: relative; }
+  .n0-card::before { content: ""; position: absolute; top: 0; left: 0; width: 60%; height: 1px; background: linear-gradient(90deg, var(--accent), transparent); }
+  .n0-card-head { display: flex; justify-content: space-between; align-items: start; gap: 16px; padding-bottom: 20px; border-bottom: 1px solid var(--rule); margin-bottom: 20px; }
+  .n0-htitle { font-family: var(--display); font-style: italic; font-size: 26px; color: var(--cream); margin: 0; font-weight: 500; }
+  .n0-hsub { font-size: 11px; letter-spacing: 0.04em; color: var(--cream-4); margin: 4px 0 0; }
+  .n0-tag { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; padding: 6px 10px; font-weight: 700; flex-shrink: 0; }
+  .n0-tag.g { background: rgba(122,176,130,0.15); color: var(--green); border: 1px solid rgba(122,176,130,0.3); }
+  .n0-tag.a { background: rgba(229,133,66,0.15); color: var(--accent); border: 1px solid rgba(229,133,66,0.3); }
+  .n0-facts > div { display: flex; justify-content: space-between; align-items: baseline; padding: 10px 0; border-bottom: 1px dotted var(--rule); font-size: 14px; color: var(--cream-3); }
+  .n0-facts > div b { font-family: var(--display); font-style: italic; font-size: 20px; color: var(--cream); font-weight: 500; }
+  .n0-facts > div b.hi { color: var(--accent); }
+  .n0-ing { font-size: 13px; color: var(--cream-3); margin: 18px 0 0; line-height: 1.6; }
+  .n0-ing strong { color: var(--green); }
+  @media (max-width: 760px) { .n0-grid { grid-template-columns: 1fr; } }
+</style>

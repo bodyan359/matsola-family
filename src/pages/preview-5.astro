@@ -1,0 +1,243 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <main class="pv" style="padding: 60px 0 120px;">
+    <div class="pv-head">
+      <a href="/matsola-family/" class="pv-back">← На головну</a>
+      <h1>Founder · варіанти</h1>
+      <p class="pv-desc">5 варіантів блоку про засновника. Поточний — внизу.</p>
+      <nav class="pv-nav">
+        <a href="/matsola-family/preview-1/">1·Hero</a>
+        <a href="/matsola-family/preview-2/">2·Products</a>
+        <a href="/matsola-family/preview-3/">3·Nutrition</a>
+        <a href="/matsola-family/preview-4/">4·Protein+Moments</a>
+        <a href="/matsola-family/preview-5/" class="on">5·Founder</a>
+        <a href="/matsola-family/preview-6/">6·Cta</a>
+      </nav>
+    </div>
+
+    <!-- V1: Centered portrait -->
+    <section class="pv-v" data-v="1">
+      <p class="pv-label">Варіант 1 · Centered portrait (focus на засновнику)</p>
+      <div class="f1-wrap">
+        <div class="f1-portrait">
+          <div class="f1-circle">АМ</div>
+          <div class="f1-sig">А. Мацола</div>
+        </div>
+        <p class="f1-role">— Засновник ППБ та Matsola Family —</p>
+        <h2 class="f1-quote">«Я хотів зробити снек, <em>якому можна довіряти</em>. Тільки м'ясо, тільки смак — і нічого зайвого.»</h2>
+        <p class="f1-name">Андрій Мацола</p>
+        <div class="f1-ppb"><span class="seal">ППБ</span><div><div class="t">Перша Приватна Броварня</div><div class="s">з 2004 · Львів</div></div></div>
+      </div>
+    </section>
+
+    <!-- V2: Handwritten letter -->
+    <section class="pv-v" data-v="2">
+      <p class="pv-label">Варіант 2 · Handwritten letter (intimate, personal)</p>
+      <div class="f2-wrap">
+        <div class="f2-paper">
+          <div class="f2-stamp">
+            <div class="f2-stamp-inner">
+              <div>ППБ</div>
+              <small>EST 2004</small>
+            </div>
+          </div>
+          <p class="f2-date">Львів, 2025</p>
+          <h2 class="f2-greet">Привіт.</h2>
+          <p class="f2-body">Мене звати <strong>Андрій Мацола</strong>. Я заснував Першу Приватну Броварню у 2004 році. А зараз створив Matsola Family — м'ясні снеки, яким можна довіряти.</p>
+          <p class="f2-body">Хотів зробити продукт, де склад читається з першого разу. Тільки м'ясо, сіль і спеції. Без скорочень. Без хімії. Без виправдань.</p>
+          <p class="f2-body f2-tight">З повагою,</p>
+          <p class="f2-sign">А. Мацола</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- V3: Side-by-side editorial -->
+    <section class="pv-v" data-v="3">
+      <p class="pv-label">Варіант 3 · Side-by-side editorial (magazine style)</p>
+      <div class="f3-wrap">
+        <div class="f3-left">
+          <p class="f3-eye">— Засновник</p>
+          <h2>Андрій<br><em>Мацола</em></h2>
+          <p class="f3-role">Засновник ППБ · Перша Приватна Броварня · з 2004</p>
+          <p class="f3-body">Понад 20 років у харчовому виробництві. Запустив перше приватне пивне виробництво незалежної України.</p>
+          <p class="f3-body">У 2025 — нова сторінка: <strong>Matsola Family</strong>. М'ясні снеки з тим же стандартом — чесний склад, без компромісів.</p>
+          <blockquote class="f3-quote">«Снек, де <em>склад на лицьовій стороні пачки</em>. Бо ховати нічого.»</blockquote>
+        </div>
+        <div class="f3-right">
+          <div class="f3-photo">АМ</div>
+          <div class="f3-cap">— Андрій Мацола, 2025</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V4: Quote feature -->
+    <section class="pv-v" data-v="4">
+      <p class="pv-label">Варіант 4 · Quote feature (цитата як hero)</p>
+      <div class="f4-wrap">
+        <div class="f4-quote-mark">"</div>
+        <h2 class="f4-quote">Я хотів зробити м'ясний снек,<br>якому <em>можна довіряти</em>.</h2>
+        <p class="f4-cont">Щоб склад на етикетці не доводилося розшифровувати. Тільки м'ясо, тільки смак — і нічого зайвого.</p>
+        <div class="f4-attr">
+          <div class="f4-avatar">АМ</div>
+          <div>
+            <p class="f4-name">Андрій Мацола</p>
+            <p class="f4-role">Засновник · ППБ з 2004</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V5: Timeline / bio cards -->
+    <section class="pv-v" data-v="5">
+      <p class="pv-label">Варіант 5 · Timeline (історія родини Мацола)</p>
+      <div class="f5-wrap">
+        <div class="f5-head">
+          <p class="f5-eye">— Родина Мацола</p>
+          <h2>Понад 20 років<br><em>чесного виробництва</em></h2>
+        </div>
+        <div class="f5-timeline">
+          <div class="f5-item">
+            <div class="f5-year">2004</div>
+            <h3>ППБ · Львів</h3>
+            <p>Заснував Першу Приватну Броварню — перше приватне пивне виробництво незалежної України.</p>
+          </div>
+          <div class="f5-item">
+            <div class="f5-year">2010+</div>
+            <h3>Стандарт якості</h3>
+            <p>Сформував принцип: продукт — це склад, а не маркетинг. Жодних скорочень.</p>
+          </div>
+          <div class="f5-item">
+            <div class="f5-year">2025</div>
+            <h3>Matsola Family</h3>
+            <p>М'ясні снеки з тим же принципом: лише м'ясо, сіль, спеції. Без сої, без підсилювачів.</p>
+          </div>
+        </div>
+        <p class="f5-sign">— А. Мацола</p>
+      </div>
+    </section>
+
+    <!-- Current -->
+    <section class="pv-v" data-v="0">
+      <p class="pv-label">Поточний · Силуэт + цитата (на сайті зараз)</p>
+      <div class="f0-wrap">
+        <div class="f0-portrait">
+          <p class="f0-silhouette">АМ</p>
+          <span class="f0-lbl">Андрій Мацола</span>
+        </div>
+        <div class="f0-copy">
+          <p class="f0-eye">Засновник</p>
+          <h2>Андрій<br><em>Мацола.</em></h2>
+          <p class="f0-subrole">Засновник ППБ та Matsola Family</p>
+          <p class="f0-quote">«Я хотів зробити м'ясний снек, якому <strong>можна довіряти</strong>. Тільки м'ясо, тільки смак — і нічого зайвого.»</p>
+          <span class="f0-signature">А. Мацола</span>
+          <div class="f0-ppb"><div class="seal">ППБ</div><div><div class="t">Перша Приватна Броварня</div><div class="s">з 2004 · Львів</div></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Shared preview chrome */
+  .pv-head { max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; }
+  .pv-back { display: inline-block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-4); text-decoration: none; margin-bottom: 24px; }
+  .pv-head h1 { font-family: var(--display); font-style: italic; font-size: clamp(36px, 5vw, 56px); color: var(--cream); margin: 0 0 12px; font-weight: 500; }
+  .pv-desc { color: var(--cream-3); font-size: 16px; max-width: 640px; margin: 0 0 24px; }
+  .pv-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pv-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-3); text-decoration: none; background: var(--ink); transition: all .2s; }
+  .pv-nav a:hover { color: var(--cream); border-color: rgba(232,220,196,0.35); }
+  .pv-nav a.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .pv-v { margin: 40px 0; }
+  .pv-label { max-width: 1200px; margin: 0 auto 14px; padding: 0 24px; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); font-weight: 700; }
+
+  /* V1: Centered portrait */
+  .f1-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 80px 24px; text-align: center; }
+  .f1-portrait { display: inline-block; position: relative; margin-bottom: 30px; }
+  .f1-circle { width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(135deg, #4a3a26, #2a2018); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-style: italic; font-size: 72px; color: var(--cream); font-weight: 500; border: 2px solid rgba(229,133,66,0.4); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+  .f1-sig { position: absolute; bottom: -10px; right: -20px; padding: 8px 18px; background: var(--black); border: 1px solid var(--accent); font-family: var(--display); font-style: italic; font-size: 18px; color: var(--accent); transform: rotate(-3deg); }
+  .f1-role { font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 30px 0 30px; font-weight: 700; }
+  .f1-quote { font-family: var(--display); font-size: clamp(28px, 4vw, 44px); line-height: 1.25; color: var(--cream); margin: 0 auto 30px; font-weight: 500; max-width: 900px; }
+  .f1-quote em { font-style: italic; color: var(--accent); }
+  .f1-name { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--cream-2); margin: 0 0 40px; }
+  .f1-ppb { display: inline-flex; align-items: center; gap: 14px; padding: 14px 22px; border: 1px solid var(--rule); background: rgba(232,220,196,0.02); }
+  .f1-ppb .seal { width: 48px; height: 48px; border: 1px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 14px; color: var(--accent); font-weight: 700; letter-spacing: 0.05em; }
+  .f1-ppb .t { font-size: 13px; color: var(--cream); font-weight: 600; text-align: left; }
+  .f1-ppb .s { font-size: 11px; color: var(--cream-4); margin-top: 2px; text-align: left; }
+
+  /* V2: Handwritten letter */
+  .f2-wrap { background: linear-gradient(135deg, #1a1612, #2a241e); padding: 60px 24px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .f2-paper { max-width: 640px; margin: 0 auto; padding: 60px 50px; background: #f4ead2; color: #2a2520; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 8px 16px rgba(0,0,0,0.3); transform: rotate(-0.5deg); }
+  .f2-stamp { position: absolute; top: 30px; right: 30px; width: 80px; height: 80px; border: 2px solid #b06834; border-radius: 50%; display: flex; align-items: center; justify-content: center; transform: rotate(8deg); background: rgba(176, 104, 52, 0.05); }
+  .f2-stamp-inner { text-align: center; color: #b06834; }
+  .f2-stamp-inner div { font-family: var(--display); font-style: italic; font-size: 22px; font-weight: 600; line-height: 1; }
+  .f2-stamp-inner small { font-size: 9px; letter-spacing: 0.16em; font-weight: 700; }
+  .f2-date { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #8a7866; margin: 0 0 20px; }
+  .f2-greet { font-family: 'Caveat', 'Pacifico', cursive, var(--display); font-style: italic; font-size: 64px; margin: 0 0 24px; color: #2a2520; font-weight: 500; }
+  .f2-body { font-size: 16px; line-height: 1.75; margin: 0 0 16px; color: #4a4034; }
+  .f2-body strong { color: #2a2520; }
+  .f2-tight { margin-bottom: 0; }
+  .f2-sign { font-family: 'Caveat', 'Pacifico', cursive, var(--display); font-style: italic; font-size: 42px; color: #b06834; margin: 8px 0 0; }
+
+  /* V3: Side-by-side editorial */
+  .f3-wrap { display: grid; grid-template-columns: 1fr 1fr; min-height: 600px; max-width: 1200px; margin: 0 auto; background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .f3-left { padding: 70px 60px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--rule); }
+  .f3-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 16px; font-weight: 700; }
+  .f3-left h2 { font-family: var(--display); font-size: clamp(48px, 6vw, 80px); line-height: 1; color: var(--cream); margin: 0 0 16px; font-weight: 500; }
+  .f3-left h2 em { font-style: italic; color: var(--accent); }
+  .f3-role { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-3); margin: 0 0 32px; font-weight: 600; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+  .f3-body { font-size: 15px; color: var(--cream-3); line-height: 1.75; margin: 0 0 16px; }
+  .f3-body strong { color: var(--cream); font-weight: 600; }
+  .f3-quote { margin: 30px 0 0; padding: 24px; border-left: 3px solid var(--accent); font-family: var(--display); font-style: italic; font-size: 22px; line-height: 1.4; color: var(--cream); background: rgba(229,133,66,0.05); }
+  .f3-quote em { color: var(--accent); }
+  .f3-right { padding: 70px 60px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; background: var(--black); }
+  .f3-photo { width: 280px; height: 360px; background: linear-gradient(180deg, #4a3a26, #2a2018); border: 1px solid rgba(229,133,66,0.4); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-style: italic; font-size: 120px; color: var(--cream); font-weight: 500; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+  .f3-cap { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-4); }
+  @media (max-width: 880px) { .f3-wrap { grid-template-columns: 1fr; } .f3-left { border-right: 0; border-bottom: 1px solid var(--rule); padding: 50px 30px; } .f3-right { padding: 50px 30px; } }
+
+  /* V4: Quote feature */
+  .f4-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 100px 24px 80px; max-width: 1100px; margin: 0 auto; text-align: center; position: relative; }
+  .f4-quote-mark { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); font-family: var(--display); font-style: italic; font-size: 200px; color: rgba(229,133,66,0.15); line-height: 1; pointer-events: none; }
+  .f4-quote { position: relative; font-family: var(--display); font-size: clamp(36px, 5vw, 72px); line-height: 1.15; color: var(--cream); margin: 0 auto 28px; font-weight: 500; max-width: 900px; }
+  .f4-quote em { font-style: italic; color: var(--accent); }
+  .f4-cont { font-size: 17px; color: var(--cream-3); line-height: 1.7; margin: 0 auto 50px; max-width: 600px; }
+  .f4-attr { display: inline-flex; align-items: center; gap: 14px; padding-top: 30px; border-top: 1px solid var(--rule); }
+  .f4-avatar { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #4a3a26, #2a2018); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-style: italic; font-size: 22px; color: var(--cream); border: 1px solid rgba(229,133,66,0.4); font-weight: 500; }
+  .f4-name { font-family: var(--display); font-style: italic; font-size: 18px; color: var(--cream); margin: 0; font-weight: 500; text-align: left; }
+  .f4-role { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-4); margin: 4px 0 0; font-weight: 700; text-align: left; }
+
+  /* V5: Timeline */
+  .f5-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 70px 24px; max-width: 1100px; margin: 0 auto; }
+  .f5-head { margin-bottom: 50px; }
+  .f5-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .f5-head h2 { font-family: var(--display); font-size: clamp(34px, 5vw, 52px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .f5-head h2 em { font-style: italic; color: var(--accent); }
+  .f5-timeline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); position: relative; }
+  .f5-item { padding: 36px 30px; border-right: 1px solid var(--rule); position: relative; }
+  .f5-item:last-child { border-right: 0; }
+  .f5-item::before { content: ""; position: absolute; top: 0; left: 36px; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; transform: translateY(-50%); }
+  .f5-year { font-family: var(--display); font-style: italic; font-size: 32px; color: var(--accent); margin-bottom: 16px; font-weight: 500; }
+  .f5-item h3 { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--cream); margin: 0 0 10px; font-weight: 500; }
+  .f5-item p { font-size: 13px; color: var(--cream-3); line-height: 1.65; margin: 0; }
+  .f5-sign { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--accent); text-align: right; margin: 40px 0 0; }
+  @media (max-width: 760px) { .f5-timeline { grid-template-columns: 1fr; } .f5-item { border-right: 0; border-bottom: 1px solid var(--rule); } .f5-item:last-child { border-bottom: 0; } }
+
+  /* V0 Current */
+  .f0-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 60px 24px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 2fr; gap: 50px; align-items: center; }
+  .f0-portrait { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+  .f0-silhouette { width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, #4a3a26, #2a2018); display: flex; align-items: center; justify-content: center; font-family: var(--display); font-style: italic; font-size: 80px; color: var(--cream); font-weight: 500; margin: 0; }
+  .f0-lbl { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-3); font-weight: 700; }
+  .f0-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .f0-copy h2 { font-family: var(--display); font-size: clamp(40px, 5vw, 64px); line-height: 1; color: var(--cream); margin: 0 0 16px; font-weight: 500; }
+  .f0-copy h2 em { font-style: italic; color: var(--accent); }
+  .f0-subrole { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-3); margin: 0 0 24px; font-weight: 600; }
+  .f0-quote { font-family: var(--display); font-size: 22px; line-height: 1.45; color: var(--cream); margin: 0 0 24px; font-style: italic; }
+  .f0-quote strong { color: var(--accent); font-weight: 500; }
+  .f0-signature { display: inline-block; font-family: var(--display); font-style: italic; font-size: 32px; color: var(--accent); margin-bottom: 30px; }
+  .f0-ppb { display: flex; align-items: center; gap: 14px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .f0-ppb .seal { width: 48px; height: 48px; border: 1px solid var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--display); font-size: 14px; color: var(--accent); font-weight: 700; }
+  .f0-ppb .t { font-size: 13px; color: var(--cream); font-weight: 600; }
+  .f0-ppb .s { font-size: 11px; color: var(--cream-4); margin-top: 2px; }
+  @media (max-width: 760px) { .f0-wrap { grid-template-columns: 1fr; gap: 30px; } }
+</style>

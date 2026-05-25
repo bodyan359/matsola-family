@@ -1,0 +1,257 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <main class="pv" style="padding: 60px 0 120px;">
+    <div class="pv-head">
+      <a href="/matsola-family/" class="pv-back">← На головну</a>
+      <h1>Cta · варіанти</h1>
+      <p class="pv-desc">5 варіантів фінального call-to-action. Поточний — внизу.</p>
+      <nav class="pv-nav">
+        <a href="/matsola-family/preview-1/">1·Hero</a>
+        <a href="/matsola-family/preview-2/">2·Products</a>
+        <a href="/matsola-family/preview-3/">3·Nutrition</a>
+        <a href="/matsola-family/preview-4/">4·Protein+Moments</a>
+        <a href="/matsola-family/preview-5/">5·Founder</a>
+        <a href="/matsola-family/preview-6/" class="on">6·Cta</a>
+      </nav>
+    </div>
+
+    <!-- V1: Dark hero -->
+    <section class="pv-v" data-v="1">
+      <p class="pv-label">Варіант 1 · Dark hero (max impact, full-width)</p>
+      <div class="c1-wrap">
+        <p class="c1-eye">— Спробуй сьогодні</p>
+        <h2 class="c1-title">Не змінюй<br><em>ритм</em>.<br>Просто їм.</h2>
+        <a class="pv-btn pv-btn-acc-lg">↗ Знайти в магазині</a>
+        <p class="c1-foot">Доступно в АТБ · Сільпо · WineTime · Винотека</p>
+      </div>
+    </section>
+
+    <!-- V2: Gradient burst -->
+    <section class="pv-v" data-v="2">
+      <p class="pv-label">Варіант 2 · Gradient burst (radial accent)</p>
+      <div class="c2-wrap">
+        <div class="c2-bg"></div>
+        <div class="c2-inner">
+          <p class="c2-eye">— Matsola Family</p>
+          <h2 class="c2-title">Створено<br><em>для тебе.</em></h2>
+          <p class="c2-sub">Снеки, яким можна довіряти. Без сої, без підсилювачів, без виправдань.</p>
+          <div class="c2-actions">
+            <a class="pv-btn pv-btn-acc">↗ Де купити</a>
+            <a class="pv-btn pv-btn-ghost">Всі продукти</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V3: Newsletter signup -->
+    <section class="pv-v" data-v="3">
+      <p class="pv-label">Варіант 3 · Newsletter / launch alert (lead gen)</p>
+      <div class="c3-wrap">
+        <div class="c3-grid">
+          <div class="c3-left">
+            <p class="c3-eye">— Скоро більше</p>
+            <h2>Друга<br><em>хвиля.</em></h2>
+            <p class="c3-desc">Ковбаски варені, сосиски, smoke house — вже у виробництві. Залиш пошту, щоб першим дізнатися про запуск.</p>
+            <ul class="c3-perks">
+              <li><span class="c3-dot"></span>Анонс ще до магазинів</li>
+              <li><span class="c3-dot"></span>Знижка на перше замовлення</li>
+              <li><span class="c3-dot"></span>Жодного спаму. Лише по справі.</li>
+            </ul>
+          </div>
+          <div class="c3-right">
+            <div class="c3-form">
+              <label class="c3-label">Твоя пошта</label>
+              <div class="c3-input-row">
+                <input type="email" placeholder="andriy@matsola.com" class="c3-input">
+                <button class="c3-btn">Чекати →</button>
+              </div>
+              <p class="c3-fine">Натискаючи, ти погоджуєшся на наші <a href="#">умови</a>. Відписка — у будь-який момент.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V4: Animated marquee CTA -->
+    <section class="pv-v" data-v="4">
+      <p class="pv-label">Варіант 4 · Marquee statement (oversized scrolling text)</p>
+      <div class="c4-wrap">
+        <div class="c4-marq c4-marq-1">
+          <span>Не змінюй ритм.</span>
+          <span class="acc">Просто їм.</span>
+          <span>Не змінюй ритм.</span>
+          <span class="acc">Просто їм.</span>
+          <span>Не змінюй ритм.</span>
+          <span class="acc">Просто їм.</span>
+        </div>
+        <div class="c4-actions">
+          <a class="pv-btn pv-btn-acc-lg">↗ Де купити</a>
+        </div>
+        <div class="c4-marq c4-marq-2">
+          <span>71% білка</span>
+          <span class="acc">·</span>
+          <span>Без сої</span>
+          <span class="acc">·</span>
+          <span>Натуральне копчення</span>
+          <span class="acc">·</span>
+          <span>71% білка</span>
+          <span class="acc">·</span>
+          <span>Без сої</span>
+          <span class="acc">·</span>
+          <span>Натуральне копчення</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- V5: Split with image -->
+    <section class="pv-v" data-v="5">
+      <p class="pv-label">Варіант 5 · Split з продукт-фото (asymmetric)</p>
+      <div class="c5-wrap">
+        <div class="c5-left">
+          <p class="c5-eye">— Спробуй сьогодні</p>
+          <h2>Matsola Family —<br><em>в кожному моменті.</em></h2>
+          <p class="c5-sub">Не змінюй ритм. Просто їм.</p>
+          <div class="c5-actions">
+            <a class="pv-btn pv-btn-acc-lg">↗ Де купити</a>
+            <a class="pv-btn">Всі продукти</a>
+          </div>
+          <div class="c5-stores">
+            <p class="c5-stores-l">— Доступно в —</p>
+            <div class="c5-stores-row">
+              <span>АТБ</span><span>Сільпо</span><span>WineTime</span><span>Винотека</span>
+            </div>
+          </div>
+        </div>
+        <div class="c5-right">
+          <div class="c5-pack">
+            <div class="c5-pack-brand">Matsola</div>
+            <div class="c5-pack-fam">— FAMILY · ESTD 2025 —</div>
+            <div class="c5-pack-window"></div>
+            <div class="c5-pack-title">КУРЯЧІ СЛАЙСИ</div>
+            <div class="c5-pack-sub">з грецькими травами</div>
+            <div class="c5-pack-meta"><span>71% БІЛКА</span><span>30 Г</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current -->
+    <section class="pv-v" data-v="0">
+      <p class="pv-label">Поточний · Centered narrow (на сайті зараз)</p>
+      <div class="c0-wrap">
+        <p class="c0-eye">Спробуй сьогодні</p>
+        <h2>Matsola Family —<br><em>створено для тебе</em></h2>
+        <p class="c0-sub">Не змінюй ритм. Просто їм.</p>
+        <div class="c0-actions">
+          <a class="pv-btn pv-btn-acc">↗ Де купити</a>
+          <a class="pv-btn">Всі продукти</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Shared preview chrome */
+  .pv-head { max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; }
+  .pv-back { display: inline-block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-4); text-decoration: none; margin-bottom: 24px; }
+  .pv-head h1 { font-family: var(--display); font-style: italic; font-size: clamp(36px, 5vw, 56px); color: var(--cream); margin: 0 0 12px; font-weight: 500; }
+  .pv-desc { color: var(--cream-3); font-size: 16px; max-width: 640px; margin: 0 0 24px; }
+  .pv-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pv-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-3); text-decoration: none; background: var(--ink); transition: all .2s; }
+  .pv-nav a:hover { color: var(--cream); border-color: rgba(232,220,196,0.35); }
+  .pv-nav a.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .pv-v { margin: 40px 0; }
+  .pv-label { max-width: 1200px; margin: 0 auto 14px; padding: 0 24px; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); font-weight: 700; }
+  .pv-btn { display: inline-flex; align-items: center; padding: 11px 20px; border: 1px solid var(--rule); border-radius: 4px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); font-weight: 600; cursor: pointer; transition: all .2s; text-decoration: none; }
+  .pv-btn:hover { border-color: var(--cream); }
+  .pv-btn-acc { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .pv-btn-acc:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+  .pv-btn-acc-lg { background: var(--accent); border: 1px solid var(--accent); color: #fff; padding: 18px 32px; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; border-radius: 4px; text-decoration: none; cursor: pointer; transition: all .2s; }
+  .pv-btn-acc-lg:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+  .pv-btn-ghost { color: var(--cream-3); border-style: dashed; }
+
+  /* V1: Dark hero */
+  .c1-wrap { background: var(--black); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 100px 24px; text-align: center; position: relative; overflow: hidden; }
+  .c1-wrap::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(229,133,66,0.18), transparent 60%); pointer-events: none; }
+  .c1-eye { position: relative; font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent); margin: 0 0 30px; font-weight: 700; }
+  .c1-title { position: relative; font-family: var(--display); font-size: clamp(60px, 9vw, 140px); line-height: 0.95; color: var(--cream); margin: 0 0 50px; font-weight: 500; }
+  .c1-title em { font-style: italic; color: var(--accent); }
+  .c1-foot { position: relative; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-4); margin: 40px 0 0; font-weight: 600; }
+
+  /* V2: Gradient burst */
+  .c2-wrap { position: relative; overflow: hidden; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); min-height: 480px; display: flex; align-items: center; }
+  .c2-bg { position: absolute; inset: 0; background:
+    radial-gradient(ellipse at 20% 80%, rgba(229,133,66,0.35), transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(122,176,130,0.2), transparent 55%),
+    linear-gradient(135deg, var(--ink), var(--black));
+  }
+  .c2-inner { position: relative; max-width: 800px; margin: 0 auto; padding: 80px 24px; text-align: center; }
+  .c2-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin: 0 0 20px; font-weight: 700; }
+  .c2-title { font-family: var(--display); font-size: clamp(50px, 7vw, 96px); line-height: 1; color: var(--cream); margin: 0 0 24px; font-weight: 500; }
+  .c2-title em { font-style: italic; color: var(--accent); }
+  .c2-sub { font-size: 17px; color: var(--cream-2); line-height: 1.6; margin: 0 0 40px; }
+  .c2-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* V3: Newsletter signup */
+  .c3-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 70px 24px; }
+  .c3-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .c3-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .c3-left h2 { font-family: var(--display); font-size: clamp(40px, 6vw, 72px); line-height: 1; color: var(--cream); margin: 0 0 20px; font-weight: 500; }
+  .c3-left h2 em { font-style: italic; color: var(--accent); }
+  .c3-desc { font-size: 15px; color: var(--cream-3); line-height: 1.65; margin: 0 0 28px; }
+  .c3-perks { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .c3-perks li { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--cream-2); }
+  .c3-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+  .c3-form { padding: 36px 32px; background: var(--black); border: 1px solid var(--rule); border-radius: 8px; }
+  .c3-label { display: block; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-4); margin-bottom: 14px; font-weight: 700; }
+  .c3-input-row { display: flex; gap: 8px; }
+  .c3-input { flex: 1; padding: 14px 16px; background: var(--ink); border: 1px solid var(--rule); color: var(--cream); font-size: 14px; font-family: inherit; border-radius: 4px; }
+  .c3-input::placeholder { color: var(--cream-4); }
+  .c3-btn { padding: 14px 22px; background: var(--accent); border: 0; color: #fff; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; cursor: pointer; border-radius: 4px; font-family: inherit; }
+  .c3-btn:hover { background: var(--accent-deep); }
+  .c3-fine { font-size: 11px; color: var(--cream-4); margin: 16px 0 0; line-height: 1.5; }
+  .c3-fine a { color: var(--cream-3); }
+  @media (max-width: 800px) { .c3-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+  /* V4: Marquee CTA */
+  .c4-wrap { background: var(--black); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 70px 0; text-align: center; overflow: hidden; }
+  .c4-marq { display: flex; gap: 40px; white-space: nowrap; animation: c4-slide 25s linear infinite; will-change: transform; padding: 16px 0; font-family: var(--display); font-style: italic; font-size: clamp(40px, 7vw, 88px); color: var(--cream); font-weight: 500; }
+  .c4-marq-2 { animation-direction: reverse; animation-duration: 35s; font-size: clamp(20px, 2.5vw, 32px); color: var(--cream-3); font-style: normal; font-family: inherit; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; }
+  .c4-marq span.acc { color: var(--accent); }
+  .c4-actions { padding: 30px 0; }
+  @keyframes c4-slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* V5: Split with pack */
+  .c5-wrap { display: grid; grid-template-columns: 1.3fr 1fr; min-height: 560px; max-width: 1200px; margin: 0 auto; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .c5-left { background: var(--ink); padding: 70px 60px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--rule); }
+  .c5-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin: 0 0 16px; font-weight: 700; }
+  .c5-left h2 { font-family: var(--display); font-size: clamp(40px, 5vw, 64px); line-height: 1; color: var(--cream); margin: 0 0 16px; font-weight: 500; }
+  .c5-left h2 em { font-style: italic; color: var(--accent); }
+  .c5-sub { font-family: var(--display); font-style: italic; font-size: 20px; color: var(--cream-2); margin: 0 0 36px; }
+  .c5-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+  .c5-stores-l { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .c5-stores-row { display: flex; gap: 24px; flex-wrap: wrap; font-family: var(--display); font-size: 18px; color: var(--cream-3); }
+  .c5-right { background: linear-gradient(135deg, rgba(229,133,66,0.08), rgba(229,133,66,0.01)); padding: 70px 60px; display: flex; align-items: center; justify-content: center; }
+  .c5-pack { width: 280px; padding: 36px 24px; background: linear-gradient(180deg, #3a322a, #221d18); border: 1px solid rgba(229,133,66,0.4); border-radius: 4px; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,0.4); transform: rotate(-2deg); }
+  .c5-pack-brand { font-family: var(--display); font-style: italic; font-size: 38px; color: var(--cream); margin-bottom: 4px; }
+  .c5-pack-fam { font-size: 9px; letter-spacing: 0.32em; color: var(--accent); margin-bottom: 18px; font-weight: 700; }
+  .c5-pack-window { height: 100px; background: radial-gradient(ellipse at center, #e8a06a 0%, #6e3414 80%); border-radius: 4px; margin-bottom: 18px; }
+  .c5-pack-title { font-size: 16px; letter-spacing: 0.12em; color: var(--cream); font-weight: 700; margin-bottom: 4px; }
+  .c5-pack-sub { font-size: 10px; color: var(--cream-3); margin-bottom: 18px; }
+  .c5-pack-meta { display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.16em; color: var(--cream-3); border-top: 1px solid rgba(232,220,196,0.15); padding-top: 14px; font-weight: 700; }
+  @media (max-width: 880px) { .c5-wrap { grid-template-columns: 1fr; } .c5-left { border-right: 0; border-bottom: 1px solid var(--rule); padding: 50px 30px; } .c5-right { padding: 50px 30px; } }
+
+  /* V0 Current */
+  .c0-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 80px 24px; text-align: center; max-width: 800px; margin: 0 auto; }
+  .c0-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 16px; font-weight: 700; }
+  .c0-wrap h2 { font-family: var(--display); font-size: clamp(36px, 5vw, 56px); line-height: 1; color: var(--cream); margin: 0 0 14px; font-weight: 500; }
+  .c0-wrap h2 em { font-style: italic; color: var(--accent); }
+  .c0-sub { font-size: 17px; color: var(--cream-2); margin: 0 0 30px; font-style: italic; font-family: var(--display); }
+  .c0-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+</style>

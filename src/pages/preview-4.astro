@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <main class="pv" style="padding: 60px 0 120px;">
+    <div class="pv-head">
+      <a href="/matsola-family/" class="pv-back">← На головну</a>
+      <h1>Protein + Moments · варіанти</h1>
+      <p class="pv-desc">5 варіантів об'єднаного блоку «Чесний білок у твоєму дні». Поточний — внизу.</p>
+      <nav class="pv-nav">
+        <a href="/matsola-family/preview-1/">1·Hero</a>
+        <a href="/matsola-family/preview-2/">2·Products</a>
+        <a href="/matsola-family/preview-3/">3·Nutrition</a>
+        <a href="/matsola-family/preview-4/" class="on">4·Protein+Moments</a>
+        <a href="/matsola-family/preview-5/">5·Founder</a>
+        <a href="/matsola-family/preview-6/">6·Cta</a>
+      </nav>
+    </div>
+
+    <!-- V1: Just moments grid (no table) -->
+    <section class="pv-v" data-v="1">
+      <p class="pv-label">Варіант 1 · Без таблиці — лише моменти (фокус на сценарії)</p>
+      <div class="m1-wrap">
+        <div class="m1-head">
+          <p class="m1-eye">— 6 моментів</p>
+          <h2>Matsola Family<br><em>у твоєму дні</em></h2>
+          <p class="m1-sub">71% білка, чесний склад — у кожному з шести моментів.</p>
+        </div>
+        <div class="m1-grid">
+          <article class="m1-card"><div class="m1-num">01</div><h3>Між справами</h3><p>П'ять хвилин між зустрічами — досить.</p></article>
+          <article class="m1-card"><div class="m1-num">02</div><h3>В дорозі</h3><p>У машині, в метро, в аеропорту.</p></article>
+          <article class="m1-card"><div class="m1-num">03</div><h3>Перерва на роботі</h3><p>Лежить у ящику столу — завжди готовий.</p></article>
+          <article class="m1-card"><div class="m1-num">04</div><h3>Розваги</h3><p>Серіал, гра, матч — щось під руку.</p></article>
+          <article class="m1-card"><div class="m1-num">05</div><h3>З компанією</h3><p>До пива ППБ або в колі друзів.</p></article>
+          <article class="m1-card"><div class="m1-num">06</div><h3>Коли треба собі</h3><p>Маленька втіха посеред важкого дня.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- V2: Horizontal timeline -->
+    <section class="pv-v" data-v="2">
+      <p class="pv-label">Варіант 2 · Horizontal timeline (lifestyle journey)</p>
+      <div class="m2-wrap">
+        <div class="m2-head">
+          <p class="m2-eye">— Твій день з Matsola</p>
+          <h2>Шість моментів —<br><em>одна звичка</em></h2>
+        </div>
+        <div class="m2-line">
+          <div class="m2-track"></div>
+          <div class="m2-stops">
+            <div class="m2-stop"><span class="m2-dot">1</span><p class="m2-t">Між справами</p><p class="m2-d">5 хвилин між зустрічами</p></div>
+            <div class="m2-stop"><span class="m2-dot">2</span><p class="m2-t">В дорозі</p><p class="m2-d">Метро, авто, аеропорт</p></div>
+            <div class="m2-stop"><span class="m2-dot">3</span><p class="m2-t">Робота</p><p class="m2-d">Перерва у ящику столу</p></div>
+            <div class="m2-stop"><span class="m2-dot">4</span><p class="m2-t">Розваги</p><p class="m2-d">Серіал, гра, матч</p></div>
+            <div class="m2-stop"><span class="m2-dot">5</span><p class="m2-t">З друзями</p><p class="m2-d">До пива ППБ</p></div>
+            <div class="m2-stop"><span class="m2-dot">6</span><p class="m2-t">Собі</p><p class="m2-d">Маленька втіха</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V3: Masonry -->
+    <section class="pv-v" data-v="3">
+      <p class="pv-label">Варіант 3 · Masonry (різна висота карток)</p>
+      <div class="m3-wrap">
+        <div class="m3-head">
+          <p class="m3-eye">— 6 моментів</p>
+          <h2>Коли<br><em>якраз доречний</em></h2>
+        </div>
+        <div class="m3-masonry">
+          <article class="m3-card m3-tall"><span class="m3-tag">між їжею</span><h3>Між справами</h3><p>П'ять хвилин між зустрічами — досить, щоб поїсти щось ситне. Без кухні, без крихт.</p><div class="m3-stat">71% білка</div></article>
+          <article class="m3-card"><span class="m3-tag">on-the-go</span><h3>В дорозі</h3><p>У машині, в метро, в аеропорту. Відкрив, поїв.</p></article>
+          <article class="m3-card m3-tall"><span class="m3-tag">робоча пауза</span><h3>Перерва на роботі</h3><p>Лежить у ящику столу — завжди готовий, коли мозок просить підзарядку.</p></article>
+          <article class="m3-card"><span class="m3-tag">дозвілля</span><h3>Розваги</h3><p>Серіал, гра, матч — і це точно не чіпси.</p></article>
+          <article class="m3-card"><span class="m3-tag">соціальний момент</span><h3>З компанією</h3><p>Кабаноси Мацола — вже стала закуска.</p></article>
+          <article class="m3-card m3-tall"><span class="m3-tag">перепочинок</span><h3>Коли треба собі</h3><p>Маленька втіха посеред важкого дня. Нічого особливого — і саме тому особливе.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- V4: Card carousel storytelling -->
+    <section class="pv-v" data-v="4">
+      <p class="pv-label">Варіант 4 · Stories carousel (Instagram-style)</p>
+      <div class="m4-wrap">
+        <div class="m4-head">
+          <p class="m4-eye">— Сценарії</p>
+          <h2>Коли Matsola<br><em>якраз доречна</em></h2>
+        </div>
+        <div class="m4-rail">
+          <article class="m4-story" style="--bg: 240, 60, 30">
+            <div class="m4-meta"><span>01/06</span><span>Між їжею</span></div>
+            <h3>Між справами</h3>
+            <p>П'ять хвилин між зустрічами — досить, щоб поїсти щось ситне.</p>
+          </article>
+          <article class="m4-story" style="--bg: 220, 80, 25">
+            <div class="m4-meta"><span>02/06</span><span>On-the-go</span></div>
+            <h3>В дорозі</h3>
+            <p>У машині, в метро, в аеропорту. Відкрив, поїв — жодного безладу.</p>
+          </article>
+          <article class="m4-story" style="--bg: 200, 50, 40">
+            <div class="m4-meta"><span>03/06</span><span>Work break</span></div>
+            <h3>Перерва на роботі</h3>
+            <p>Лежить у ящику столу — завжди готовий, коли мозок просить підзарядку.</p>
+          </article>
+          <article class="m4-story" style="--bg: 250, 80, 35">
+            <div class="m4-meta"><span>04/06</span><span>Дозвілля</span></div>
+            <h3>Розваги</h3>
+            <p>Серіал, гра, матч. І це точно не чіпси.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- V5: Number-list with icons -->
+    <section class="pv-v" data-v="5">
+      <p class="pv-label">Варіант 5 · Number list (editorial / minimal)</p>
+      <div class="m5-wrap">
+        <div class="m5-head">
+          <p class="m5-eye">— 6 моментів</p>
+          <h2>Сценарії,<br><em>коли якраз</em></h2>
+        </div>
+        <ol class="m5-list">
+          <li><span class="m5-n">01</span><div><h3>Між справами</h3><p>5 хвилин між зустрічами — досить.</p></div></li>
+          <li><span class="m5-n">02</span><div><h3>В дорозі</h3><p>У машині, в метро, в аеропорту.</p></div></li>
+          <li><span class="m5-n">03</span><div><h3>Перерва на роботі</h3><p>У ящику столу — завжди готовий.</p></div></li>
+          <li><span class="m5-n">04</span><div><h3>Розваги</h3><p>Серіал, гра, матч.</p></div></li>
+          <li><span class="m5-n">05</span><div><h3>З компанією</h3><p>До пива ППБ.</p></div></li>
+          <li><span class="m5-n">06</span><div><h3>Коли треба собі</h3><p>Маленька втіха посеред дня.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Current -->
+    <section class="pv-v" data-v="0">
+      <p class="pv-label">Поточний · Таблиця + 6 карток (на сайті зараз)</p>
+      <div class="m0-wrap">
+        <div class="m0-head">
+          <p class="m0-eye">Чому Matsola</p>
+          <h2>Чесний білок<br><em>у твоєму дні</em></h2>
+        </div>
+        <table class="m0-table">
+          <thead><tr><th>Продукт</th><th>Білок</th><th>Ккал</th><th>Без сої</th></tr></thead>
+          <tbody>
+            <tr class="hero"><td>Курячі Слайси</td><td class="hi">71 г</td><td class="hi">340</td><td class="hi">✓</td></tr>
+            <tr class="hero"><td>Кабаноси</td><td class="hi">24 г</td><td class="hi">450</td><td class="hi">✓</td></tr>
+            <tr><td>Горішки</td><td class="mid">18 г</td><td class="mid">580</td><td class="mid">✓</td></tr>
+            <tr><td>Батончик</td><td class="lo">5 г</td><td class="lo">450</td><td class="lo">!</td></tr>
+          </tbody>
+        </table>
+        <div class="m0-grid">
+          <article><div class="num">— 01</div><h3>Між справами</h3></article>
+          <article><div class="num">— 02</div><h3>В дорозі</h3></article>
+          <article><div class="num">— 03</div><h3>Перерва</h3></article>
+          <article><div class="num">— 04</div><h3>Розваги</h3></article>
+          <article><div class="num">— 05</div><h3>З компанією</h3></article>
+          <article><div class="num">— 06</div><h3>Коли собі</h3></article>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Shared preview chrome */
+  .pv-head { max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; }
+  .pv-back { display: inline-block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-4); text-decoration: none; margin-bottom: 24px; }
+  .pv-head h1 { font-family: var(--display); font-style: italic; font-size: clamp(36px, 5vw, 56px); color: var(--cream); margin: 0 0 12px; font-weight: 500; }
+  .pv-desc { color: var(--cream-3); font-size: 16px; max-width: 640px; margin: 0 0 24px; }
+  .pv-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pv-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-3); text-decoration: none; background: var(--ink); transition: all .2s; }
+  .pv-nav a:hover { color: var(--cream); border-color: rgba(232,220,196,0.35); }
+  .pv-nav a.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .pv-v { margin: 40px 0; }
+  .pv-label { max-width: 1200px; margin: 0 auto 14px; padding: 0 24px; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); font-weight: 700; }
+
+  /* V1: Moments grid */
+  .m1-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 60px 24px; }
+  .m1-head { max-width: 1100px; margin: 0 auto 40px; }
+  .m1-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .m1-head h2 { font-family: var(--display); font-size: clamp(36px, 5vw, 56px); line-height: 1; color: var(--cream); margin: 0 0 16px; font-weight: 500; }
+  .m1-head h2 em { font-style: italic; color: var(--accent); }
+  .m1-sub { font-size: 15px; color: var(--cream-3); margin: 0; max-width: 540px; }
+  .m1-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); max-width: 1100px; margin: 0 auto; }
+  .m1-card { padding: 40px 32px 36px; border-right: 1px solid var(--rule); }
+  .m1-card:nth-child(3n) { border-right: 0; }
+  .m1-card:nth-child(n+4) { border-top: 1px solid var(--rule); }
+  .m1-num { font-family: var(--display); font-style: italic; font-size: 28px; color: var(--accent); margin-bottom: 12px; font-weight: 500; }
+  .m1-card h3 { font-family: var(--display); font-style: italic; font-size: 24px; color: var(--cream); margin: 0 0 8px; font-weight: 500; }
+  .m1-card p { font-size: 13px; color: var(--cream-3); margin: 0; line-height: 1.6; }
+  @media (max-width: 760px) { .m1-grid { grid-template-columns: 1fr; } .m1-card { border-right: 0; border-bottom: 1px solid var(--rule); } }
+
+  /* V2: Timeline */
+  .m2-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 70px 24px; }
+  .m2-head { max-width: 1200px; margin: 0 auto 50px; text-align: center; }
+  .m2-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .m2-head h2 { font-family: var(--display); font-size: clamp(36px, 5vw, 56px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .m2-head h2 em { font-style: italic; color: var(--accent); }
+  .m2-line { position: relative; max-width: 1200px; margin: 0 auto; }
+  .m2-track { position: absolute; top: 26px; left: 5%; right: 5%; height: 1px; background: linear-gradient(90deg, transparent, var(--accent) 20%, var(--accent) 80%, transparent); }
+  .m2-stops { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; position: relative; }
+  .m2-stop { text-align: center; }
+  .m2-dot { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; border-radius: 50%; background: var(--black); border: 2px solid var(--accent); color: var(--accent); font-family: var(--display); font-style: italic; font-size: 22px; font-weight: 500; margin-bottom: 20px; position: relative; z-index: 1; }
+  .m2-t { font-family: var(--display); font-style: italic; font-size: 18px; color: var(--cream); margin: 0 0 4px; font-weight: 500; }
+  .m2-d { font-size: 11px; letter-spacing: 0.08em; color: var(--cream-3); margin: 0; }
+  @media (max-width: 880px) { .m2-stops { grid-template-columns: repeat(3, 1fr); row-gap: 36px; } .m2-track { display: none; } }
+
+  /* V3: Masonry */
+  .m3-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 60px 24px; }
+  .m3-head { max-width: 1200px; margin: 0 auto 40px; }
+  .m3-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .m3-head h2 { font-family: var(--display); font-size: clamp(36px, 5vw, 56px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .m3-head h2 em { font-style: italic; color: var(--accent); }
+  .m3-masonry { columns: 3; column-gap: 20px; max-width: 1200px; margin: 0 auto; }
+  .m3-card { break-inside: avoid; margin-bottom: 20px; padding: 26px 24px; border: 1px solid var(--rule); background: rgba(232,220,196,0.02); }
+  .m3-card.m3-tall { padding-bottom: 38px; }
+  .m3-tag { display: inline-block; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; font-weight: 700; padding: 4px 10px; background: rgba(229,133,66,0.1); }
+  .m3-card h3 { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--cream); margin: 0 0 8px; font-weight: 500; }
+  .m3-card p { font-size: 13px; color: var(--cream-3); margin: 0; line-height: 1.65; }
+  .m3-stat { margin-top: 18px; padding-top: 14px; border-top: 1px dashed var(--rule); font-family: var(--display); font-style: italic; font-size: 22px; color: var(--accent); }
+  @media (max-width: 880px) { .m3-masonry { columns: 2; } }
+  @media (max-width: 560px) { .m3-masonry { columns: 1; } }
+
+  /* V4: Stories carousel */
+  .m4-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 60px 0; }
+  .m4-head { max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; text-align: center; }
+  .m4-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .m4-head h2 { font-family: var(--display); font-size: clamp(36px, 5vw, 56px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .m4-head h2 em { font-style: italic; color: var(--accent); }
+  .m4-rail { display: flex; gap: 16px; padding: 0 24px 30px; overflow-x: auto; scroll-snap-type: x mandatory; }
+  .m4-story { flex: 0 0 280px; aspect-ratio: 9/16; padding: 28px 22px; border-radius: 16px; scroll-snap-align: start; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; background: linear-gradient(160deg, hsl(var(--bg), 0.95), hsl(var(--bg), 0.4) 60%, rgba(15,14,11,0.95)); color: #fff; }
+  .m4-meta { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.85; display: flex; gap: 8px; font-weight: 700; }
+  .m4-story h3 { font-family: var(--display); font-style: italic; font-size: 32px; margin: 0; font-weight: 500; }
+  .m4-story p { font-size: 14px; margin: 0; line-height: 1.5; opacity: 0.92; }
+
+  /* V5: Number list */
+  .m5-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 80px 24px; max-width: 900px; margin: 0 auto; }
+  .m5-head { margin-bottom: 50px; }
+  .m5-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .m5-head h2 { font-family: var(--display); font-size: clamp(36px, 5vw, 56px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .m5-head h2 em { font-style: italic; color: var(--accent); }
+  .m5-list { list-style: none; padding: 0; margin: 0; }
+  .m5-list li { display: grid; grid-template-columns: 80px 1fr; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--rule); align-items: baseline; }
+  .m5-list li:last-child { border-bottom: 0; }
+  .m5-n { font-family: var(--display); font-style: italic; font-size: 48px; color: var(--accent); font-weight: 500; line-height: 1; }
+  .m5-list h3 { font-family: var(--display); font-style: italic; font-size: 24px; color: var(--cream); margin: 0 0 4px; font-weight: 500; }
+  .m5-list p { font-size: 14px; color: var(--cream-3); margin: 0; }
+
+  /* V0 Current */
+  .m0-wrap { background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 50px 24px; max-width: 1200px; margin: 0 auto; }
+  .m0-head { margin-bottom: 36px; }
+  .m0-eye { font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 12px; font-weight: 700; }
+  .m0-head h2 { font-family: var(--display); font-size: clamp(34px, 5vw, 52px); line-height: 1; color: var(--cream); margin: 0; font-weight: 500; }
+  .m0-head h2 em { font-style: italic; color: var(--accent); }
+  .m0-table { width: 100%; border-collapse: collapse; margin-bottom: 50px; }
+  .m0-table th, .m0-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--rule); font-size: 14px; }
+  .m0-table th { font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-4); font-weight: 700; }
+  .m0-table tr.hero td { color: var(--accent); }
+  .m0-table .hi { color: var(--accent); font-weight: 600; }
+  .m0-table .mid { color: var(--cream-3); }
+  .m0-table .lo { color: var(--cream-4); }
+  .m0-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .m0-grid article { padding: 36px 28px; border-right: 1px solid var(--rule); }
+  .m0-grid article:nth-child(3n) { border-right: 0; }
+  .m0-grid article:nth-child(n+4) { border-top: 1px solid var(--rule); }
+  .m0-grid .num { font-family: var(--display); font-style: italic; font-size: 22px; color: var(--accent); margin-bottom: 10px; }
+  .m0-grid h3 { font-family: var(--display); font-style: italic; font-size: 20px; color: var(--cream); margin: 0; font-weight: 500; }
+  @media (max-width: 760px) { .m0-grid { grid-template-columns: 1fr; } .m0-grid article { border-right: 0; border-bottom: 1px solid var(--rule); } }
+</style>

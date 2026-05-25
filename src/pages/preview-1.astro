@@ -1,0 +1,274 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout>
+  <main class="pv" style="padding: 60px 0 120px;">
+    <div class="pv-head">
+      <a href="/matsola-family/" class="pv-back">← На головну</a>
+      <h1>Hero · варіанти</h1>
+      <p class="pv-desc">5 варіантів першого екрану. Поточний — внизу.</p>
+      <nav class="pv-nav">
+        <a href="/matsola-family/preview-1/" class="on">1·Hero</a>
+        <a href="/matsola-family/preview-2/">2·Products</a>
+        <a href="/matsola-family/preview-3/">3·Nutrition</a>
+        <a href="/matsola-family/preview-4/">4·Protein+Moments</a>
+        <a href="/matsola-family/preview-5/">5·Founder</a>
+        <a href="/matsola-family/preview-6/">6·Cta</a>
+      </nav>
+    </div>
+
+    <!-- V1: Full-bleed editorial -->
+    <section class="pv-v" data-v="1">
+      <p class="pv-label">Варіант 1 · Full-bleed editorial</p>
+      <div class="h1-wrap">
+        <div class="h1-bg"></div>
+        <div class="h1-overlay"></div>
+        <div class="h1-inner">
+          <div class="h1-tag"><span class="dot"></span>М'ясні снеки від родини Мацола</div>
+          <h2 class="h1-title">Не змінюй <em>ритм</em>.<br>Просто <em>їм</em>.</h2>
+          <p class="h1-sub">Чесний склад: м'ясо, сіль, спеції. І нічого зайвого.</p>
+          <div class="h1-cta">
+            <a class="pv-btn pv-btn-acc">↓ Дивитись продукти</a>
+            <a class="pv-btn">Де купити</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V2: Centered minimal -->
+    <section class="pv-v" data-v="2">
+      <p class="pv-label">Варіант 2 · Centered minimal (max focus)</p>
+      <div class="h2-wrap">
+        <p class="h2-pre">— Matsola Family · ESTD 2025 —</p>
+        <h2 class="h2-title">Не змінюй ритм.<br><em>Просто їм.</em></h2>
+        <p class="h2-sub">Курячі слайси та кабаноси з чесним складом.</p>
+        <div class="h2-actions">
+          <a class="pv-btn pv-btn-acc">Дивитись продукти ↓</a>
+        </div>
+        <div class="h2-foot">
+          <span>71% білків</span><span>·</span>
+          <span>4–5 інгредієнтів</span><span>·</span>
+          <span>з 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- V3: Magazine cover -->
+    <section class="pv-v" data-v="3">
+      <p class="pv-label">Варіант 3 · Magazine cover (typographic)</p>
+      <div class="h3-wrap">
+        <div class="h3-top">
+          <span class="h3-issue">ISSUE 01 · 2025</span>
+          <span class="h3-bar">— — —</span>
+          <span class="h3-issue">UAH · KYIV · LVIV</span>
+        </div>
+        <h2 class="h3-title">
+          <span class="h3-l1">Не змінюй</span>
+          <span class="h3-l2">ритм</span>
+          <span class="h3-l3">Просто їм.</span>
+        </h2>
+        <div class="h3-bottom">
+          <div class="h3-block">
+            <div class="h3-cap">У цьому випуску</div>
+            <div class="h3-list">→ Курячі слайси<br>→ Кабаноси · 4 смаки<br>→ Чесний склад</div>
+          </div>
+          <div class="h3-block h3-stats">
+            <div class="h3-stat"><strong>71%</strong>білка</div>
+            <div class="h3-stat"><strong>0 г</strong>вуглеводів</div>
+          </div>
+          <div class="h3-block">
+            <a class="pv-btn pv-btn-acc">Купити →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V4: Split 50/50 -->
+    <section class="pv-v" data-v="4">
+      <p class="pv-label">Варіант 4 · Split 50/50 (strict half-half)</p>
+      <div class="h4-wrap">
+        <div class="h4-left">
+          <p class="h4-eye">— Matsola Family</p>
+          <h2>Не змінюй ритм.<br><em>Просто їм.</em></h2>
+          <p class="h4-desc">Снеки, яким можна довіряти. Без сої, підсилювачів та дрібного шрифту на звороті.</p>
+          <a class="pv-btn pv-btn-acc">↓ Дивитись продукти</a>
+        </div>
+        <div class="h4-right">
+          <div class="h4-card">
+            <div class="h4-card-n">71%</div>
+            <div class="h4-card-l">Білків у курячих слайсах</div>
+          </div>
+          <div class="h4-card">
+            <div class="h4-card-n">4 смаки</div>
+            <div class="h4-card-l">Кабаноси</div>
+          </div>
+          <div class="h4-card h4-acc">
+            <div class="h4-card-n">2025</div>
+            <div class="h4-card-l">Заснов.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- V5: Bold statement -->
+    <section class="pv-v" data-v="5">
+      <p class="pv-label">Варіант 5 · Bold statement (text-only, max impact)</p>
+      <div class="h5-wrap">
+        <div class="h5-meta">
+          <span>Matsola Family</span>
+          <span>·</span>
+          <span>ESTD 2025</span>
+          <span>·</span>
+          <span>Львів, Україна</span>
+        </div>
+        <h2 class="h5-title">
+          Не змінюй<br>
+          <span class="h5-acc">ритм</span>.<br>
+          Просто <span class="h5-italic">їм</span>.
+        </h2>
+        <div class="h5-foot">
+          <a class="pv-btn pv-btn-acc">↓ Продукти</a>
+          <a class="pv-btn">Де купити</a>
+          <a class="pv-btn pv-btn-ghost">Про нас</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Current preview (visual stub) -->
+    <section class="pv-v" data-v="0">
+      <p class="pv-label">Поточний · split з 3D-пачкою (на сайті зараз)</p>
+      <div class="h0-wrap">
+        <div class="h0-left">
+          <div class="h0-tag"><span class="dot"></span>М'ясні снеки від родини Мацола</div>
+          <h2>Не змінюй ритм.<br><span class="acc">Просто їм.</span></h2>
+          <p class="h0-sub">Снеки, яким можна довіряти.</p>
+          <p class="h0-desc">Курячі слайси та кабаноси з чесним складом. Без сої, без підсилювачів.</p>
+          <div class="h0-meta">
+            <div><div class="k">Заснов.</div><div class="v">2025</div></div>
+            <div><div class="k">Білків</div><div class="v acc">71%</div></div>
+            <div><div class="k">Інгред.</div><div class="v">4–5</div></div>
+          </div>
+        </div>
+        <div class="h0-right">
+          <div class="h0-pack">
+            <div class="h0-pack-brand">Matsola</div>
+            <div class="h0-pack-fam">— FAMILY —</div>
+            <div class="h0-pack-window"></div>
+            <div class="h0-pack-title">КУРЯЧІ СЛАЙСИ</div>
+            <div class="h0-pack-sub">з грецькими травами</div>
+            <div class="h0-pack-w">30 г</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Shared preview chrome */
+  .pv-head { max-width: 1200px; margin: 0 auto 40px; padding: 0 24px; }
+  .pv-back { display: inline-block; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-4); text-decoration: none; margin-bottom: 24px; }
+  .pv-head h1 { font-family: var(--display); font-style: italic; font-size: clamp(36px, 5vw, 56px); color: var(--cream); margin: 0 0 12px; font-weight: 500; }
+  .pv-desc { color: var(--cream-3); font-size: 16px; max-width: 640px; margin: 0 0 24px; }
+  .pv-nav { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pv-nav a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid var(--rule); border-radius: 999px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-3); text-decoration: none; background: var(--ink); transition: all .2s; }
+  .pv-nav a:hover { color: var(--cream); border-color: rgba(232,220,196,0.35); }
+  .pv-nav a.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .pv-v { margin: 40px 0; }
+  .pv-label { max-width: 1200px; margin: 0 auto 14px; padding: 0 24px; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); font-weight: 700; }
+  .pv-btn { display: inline-flex; align-items: center; padding: 12px 22px; border: 1px solid var(--rule); border-radius: 4px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cream); font-weight: 600; cursor: pointer; transition: all .2s; }
+  .pv-btn:hover { border-color: var(--cream); }
+  .pv-btn-acc { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .pv-btn-acc:hover { background: var(--accent-deep); border-color: var(--accent-deep); }
+  .pv-btn-ghost { color: var(--cream-3); border-style: dashed; }
+
+  /* V1: Full-bleed editorial */
+  .h1-wrap { position: relative; min-height: 540px; overflow: hidden; display: flex; align-items: center; }
+  .h1-bg { position: absolute; inset: 0; background:
+    radial-gradient(ellipse at 30% 70%, rgba(229, 133, 66, 0.32), transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(122, 176, 130, 0.18), transparent 50%),
+    linear-gradient(135deg, #1a1610, #2f2c28 60%, #1a1610);
+  }
+  .h1-overlay { position: absolute; inset: 0; background:
+    linear-gradient(180deg, transparent 0%, rgba(15, 14, 11, 0.7) 90%),
+    repeating-linear-gradient(45deg, transparent 0 12px, rgba(0,0,0,0.04) 12px 13px);
+  }
+  .h1-inner { position: relative; max-width: 1200px; margin: 0 auto; padding: 60px 24px; width: 100%; }
+  .h1-tag { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; background: rgba(0,0,0,0.35); border: 1px solid rgba(232,220,196,0.2); border-radius: 999px; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-2); margin-bottom: 32px; backdrop-filter: blur(8px); }
+  .h1-tag .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .h1-title { font-family: var(--display); font-size: clamp(52px, 7vw, 96px); line-height: 0.96; color: var(--cream); margin: 0 0 24px; font-weight: 500; max-width: 820px; }
+  .h1-title em { font-style: italic; color: var(--accent); }
+  .h1-sub { font-size: 18px; color: var(--cream-3); margin: 0 0 36px; max-width: 480px; }
+  .h1-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* V2: Centered minimal */
+  .h2-wrap { min-height: 560px; background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 24px; text-align: center; }
+  .h2-pre { font-size: 11px; letter-spacing: 0.34em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 32px; font-weight: 700; }
+  .h2-title { font-family: var(--display); font-size: clamp(54px, 8vw, 110px); line-height: 0.98; color: var(--cream); margin: 0 0 24px; font-weight: 500; }
+  .h2-title em { font-style: italic; color: var(--accent); }
+  .h2-sub { font-size: 18px; color: var(--cream-3); margin: 0 0 40px; }
+  .h2-actions { margin-bottom: 48px; }
+  .h2-foot { display: flex; align-items: center; gap: 16px; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cream-4); flex-wrap: wrap; justify-content: center; font-weight: 600; }
+
+  /* V3: Magazine cover */
+  .h3-wrap { background: var(--ink); border-top: 4px double var(--accent); border-bottom: 4px double var(--accent); padding: 40px 24px 50px; max-width: 1100px; margin: 0 auto; }
+  .h3-top { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); margin-bottom: 32px; flex-wrap: wrap; }
+  .h3-issue { font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-3); }
+  .h3-bar { color: var(--accent); font-size: 14px; letter-spacing: 0.5em; }
+  .h3-title { display: flex; flex-direction: column; align-items: center; text-align: center; margin: 0 0 40px; font-family: var(--display); font-weight: 500; }
+  .h3-l1 { font-size: clamp(28px, 4vw, 44px); color: var(--cream-2); letter-spacing: 0.02em; }
+  .h3-l2 { font-style: italic; font-size: clamp(120px, 18vw, 220px); line-height: 0.85; color: var(--accent); margin: -10px 0; }
+  .h3-l3 { font-size: clamp(28px, 4vw, 44px); color: var(--cream-2); letter-spacing: 0.02em; }
+  .h3-bottom { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; align-items: center; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .h3-block { font-size: 13px; color: var(--cream-3); line-height: 1.7; }
+  .h3-cap { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--cream-4); margin-bottom: 10px; font-weight: 700; }
+  .h3-list { color: var(--cream-2); line-height: 1.8; }
+  .h3-stats { display: flex; gap: 20px; justify-content: center; }
+  .h3-stat { font-family: var(--display); font-style: italic; font-size: 18px; color: var(--cream-3); display: flex; flex-direction: column; align-items: center; }
+  .h3-stat strong { font-size: 38px; color: var(--accent); font-weight: 500; line-height: 1; margin-bottom: 4px; }
+  @media (max-width: 760px) { .h3-bottom { grid-template-columns: 1fr; } }
+
+  /* V4: Split 50/50 */
+  .h4-wrap { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
+  .h4-left { background: var(--ink); padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--rule); }
+  .h4-left .h4-eye { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--cream-4); margin: 0 0 24px; font-weight: 700; }
+  .h4-left h2 { font-family: var(--display); font-size: clamp(40px, 5vw, 64px); line-height: 1; color: var(--cream); margin: 0 0 24px; font-weight: 500; }
+  .h4-left h2 em { font-style: italic; color: var(--accent); }
+  .h4-desc { font-size: 15px; color: var(--cream-3); line-height: 1.65; margin: 0 0 32px; max-width: 380px; }
+  .h4-right { background: var(--black); padding: 80px 60px; display: grid; grid-template-rows: 1fr 1fr 1fr; gap: 20px; }
+  .h4-card { padding: 30px; border: 1px solid var(--rule); background: rgba(232, 220, 196, 0.025); display: flex; flex-direction: column; justify-content: center; }
+  .h4-card.h4-acc { background: rgba(229, 133, 66, 0.06); border-color: rgba(229, 133, 66, 0.3); }
+  .h4-card-n { font-family: var(--display); font-style: italic; font-size: 42px; line-height: 1; color: var(--accent); font-weight: 500; margin-bottom: 8px; }
+  .h4-card-l { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cream-3); font-weight: 600; }
+  @media (max-width: 880px) { .h4-wrap { grid-template-columns: 1fr; } .h4-left { border-right: 0; border-bottom: 1px solid var(--rule); padding: 50px 30px; } .h4-right { padding: 50px 30px; } }
+
+  /* V5: Bold statement */
+  .h5-wrap { background: var(--black); min-height: 620px; display: flex; flex-direction: column; justify-content: center; padding: 80px 24px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .h5-meta { display: flex; align-items: center; justify-content: center; gap: 12px; font-family: ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-4); margin-bottom: 60px; flex-wrap: wrap; }
+  .h5-title { font-family: var(--display); font-size: clamp(80px, 13vw, 200px); line-height: 0.88; color: var(--cream); margin: 0 auto 60px; font-weight: 500; text-align: center; max-width: 1100px; }
+  .h5-acc { color: var(--accent); font-style: italic; }
+  .h5-italic { font-style: italic; }
+  .h5-foot { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; }
+
+  /* V0 / Current (simplified stub) */
+  .h0-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: var(--ink); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); padding: 70px 40px; min-height: 540px; max-width: 1200px; margin: 0 auto; align-items: center; }
+  .h0-left h2 { font-family: var(--display); font-size: clamp(40px, 5vw, 64px); color: var(--cream); margin: 16px 0 16px; font-weight: 500; line-height: 1; }
+  .h0-left h2 .acc { color: var(--accent); font-style: italic; }
+  .h0-tag { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; background: rgba(232,220,196,0.04); border: 1px solid var(--rule); border-radius: 999px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cream-3); margin-bottom: 12px; }
+  .h0-tag .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+  .h0-sub { color: var(--cream-2); font-style: italic; font-family: var(--display); font-size: 20px; margin: 0 0 12px; }
+  .h0-desc { color: var(--cream-3); font-size: 14px; line-height: 1.65; margin: 0 0 30px; max-width: 420px; }
+  .h0-meta { display: flex; gap: 28px; }
+  .h0-meta .k { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream-4); margin-bottom: 6px; font-weight: 700; }
+  .h0-meta .v { font-family: var(--display); font-style: italic; font-size: 28px; color: var(--cream); }
+  .h0-meta .v.acc { color: var(--accent); }
+  .h0-right { display: flex; align-items: center; justify-content: center; }
+  .h0-pack { width: 240px; padding: 30px 20px; background: linear-gradient(180deg, #2a2620, #1c1814); border: 1px solid rgba(229,133,66,0.3); border-radius: 4px; text-align: center; }
+  .h0-pack-brand { font-family: var(--display); font-style: italic; font-size: 32px; color: var(--cream); margin-bottom: 4px; }
+  .h0-pack-fam { font-size: 9px; letter-spacing: 0.4em; color: var(--accent); margin-bottom: 14px; }
+  .h0-pack-window { height: 80px; background: radial-gradient(ellipse at center, #e8a06a 0%, #6e3414 80%); border-radius: 4px; margin-bottom: 14px; }
+  .h0-pack-title { font-size: 14px; letter-spacing: 0.1em; color: var(--cream); font-weight: 700; margin-bottom: 4px; }
+  .h0-pack-sub { font-size: 9px; color: var(--cream-3); margin-bottom: 14px; }
+  .h0-pack-w { font-size: 11px; letter-spacing: 0.18em; color: var(--cream-3); border-top: 1px solid rgba(232,220,196,0.15); padding-top: 12px; }
+  @media (max-width: 760px) { .h0-wrap { grid-template-columns: 1fr; padding: 40px 24px; } }
+</style>
